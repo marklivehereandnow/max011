@@ -106,6 +106,10 @@ public class Engine {
 
         System.out.println();
 
+           System.out.println("  === ver 0.56 ===  2014-4-28, 22:30, by Mark　");
+        System.out.println("    1. ****secured maximum card numbers on-hand **** ");
+        System.out.println();
+        
         System.out.println("  === ver 0.55 ===  2014-4-28, 22:10, by Mark　");
         System.out.println("    1. ****secured cards be held for one round using RoundNumber on Card**** ");
         System.out.println();
