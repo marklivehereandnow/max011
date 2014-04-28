@@ -106,6 +106,10 @@ public class Engine {
 
         System.out.println();
 
+        System.out.println("  === ver 0.54 ===  2014-4-28, 21:20, by Mark　");
+        System.out.println("    1. change Government holder to be Card ");
+        System.out.println("    2. also fix 農場 and 礦山 doProduction");
+        System.out.println();
         System.out.println("  === ver 0.53 ===  2014-4-28, 20:20, by Mark　");
         System.out.println("    1. secure not allow repeat leader within the same age ");
         System.out.println("    2. new LeaderDeck class with ages:**23 layout");

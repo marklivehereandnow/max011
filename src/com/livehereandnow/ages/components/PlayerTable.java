@@ -19,7 +19,7 @@ import java.util.List;
  * @author mark
  */
 public class PlayerTable extends Object {
-
+//    private Card
     private LeaderDeck leader;
     private List<Card> 奇蹟待建區;
     private List<Card> 奇蹟完成區;
@@ -43,7 +43,15 @@ public class PlayerTable extends Object {
 //    public Card getLeaderDeck() {
 //        return leader;
 //    }
-    private Card[] cards政府;
+    private Card cards政府;
+
+    public Card getCard政府() {
+        return cards政府;
+    }
+
+    public void setCard政府(Card cards政府) {
+        this.cards政府 = cards政府;
+    }
     private Card[] cards實驗室;
     private Card[] cards神廟;
     private Card[] cards農場;
@@ -163,20 +171,21 @@ public class PlayerTable extends Object {
         cards = new Card[6][];
         other桌上的牌 = new ArrayList<>();
         //---------------------
-        cards政府 = new Card[4];
+//        cards政府 = new Card[4];
         cards實驗室 = new Card[4];
         cards神廟 = new Card[4];
         cards農場 = new Card[4];
         cards礦山 = new Card[4];
         cards步兵 = new Card[4];
-        cards[0] = cards政府;
+//        cards[0] = cards政府;
         cards[1] = cards實驗室;
         cards[2] = cards神廟;
         cards[3] = cards農場;
         cards[4] = cards礦山;
         cards[5] = cards步兵;
 
-        cards政府[0] = new Card(10, "專制", 0, 內政, 科技, 橙色, "政府", "內政點數+4，軍事點數+2", "0");
+//        cards政府[0] = new Card(10, "專制", 0, 內政, 科技, 橙色, "政府", "內政點數+4，軍事點數+2", "0");
+cards政府 = new Card(10, "專制", 0, 內政, 科技, 橙色, "政府", "內政點數+4，軍事點數+2", "0");
 
         cards實驗室[0] = new Card(13, "哲學", 0, 內政, 科技, 灰色, "實驗室", "科技生產+1", "3");
         cards神廟[0] = new Card(11, "宗教", 0, 內政, 科技, 灰色, "神廟", "笑臉+1，文化生產+1", "3");
@@ -201,19 +210,25 @@ public class PlayerTable extends Object {
 
     }
 
-    private void showAges政府(String title, Card[] ages) {
-        System.out.print("  " + title);
-        for (int k = 0; k < 4; k++) {
-            try {
-                System.out.print(" " + ages[k].toString(7));
-            } catch (Exception e) {
-            }
-        }
-        System.out.print(" ONLY TO SEE LATEST ONE!!!");
-        System.out.println("  ");
+//    private void showAges政府(String title, Card[] ages) {
+//        System.out.print("  " + title);
+//        for (int k = 0; k < 4; k++) {
+//            try {
+//                System.out.print(" " + ages[k].toString(7));
+//            } catch (Exception e) {
+//            }
+//        }
+//        System.out.print(" ONLY TO SEE LATEST ONE!!!");
+//        System.out.println("  ");
+//
+//    }
 
+    private void show政府() {
+                System.out.print("    政府 "+cards政府.toString(7));
+         
     }
 
+    
     private void showAgesX5(String title, Card[] ages) {
         System.out.print("  " + title);
         for (int k = 0; k < 4; k++) {
@@ -233,7 +248,7 @@ public class PlayerTable extends Object {
 
     public void show() {
         show領袖();
-        showAges政府("  政府", cards政府);
+        show政府();
         System.out.println("");
         showAgesX5();
 

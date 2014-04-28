@@ -96,7 +96,7 @@ public class EngineCore {
 //    }
     public boolean doStatus() {
 
-        cardRow.show();
+        cardRow.show(1);
         System.out.println();
         System.out.println("   === Round #" + roundNum + ", " + this.當前玩家.getName() + " === ");
         this.當前玩家.showStatus();

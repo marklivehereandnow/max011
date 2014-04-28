@@ -115,7 +115,8 @@ public class Player {
             System.out.println("The index is " + cardIndex);
             Card newGovt = 手上的牌.get(cardIndex);
             System.out.println("3. Now, to replace the Govt with " + newGovt);
-            this.government = newGovt;
+//            this.government = newGovt;
+            table.setCard政府(newGovt);
             System.out.println("*** NOT TO ALLOW MORE THAN ONE GOVT CARD ON HAND ??? *** ");
 
             return true;
@@ -157,8 +158,10 @@ public class Player {
 
     public boolean doStartRound() throws AgesException {//ver 0.41
         System.out.println("玩家的回合開始，補充內政和軍事點數---從政府牌補充");
-        getCivilCounter().setPoint(getCurrentGovernment().getWhitePoints().getPoints());
-        getMilitaryCounter().setPoint(getCurrentGovernment().getRedPoints().getPoints());
+//        getCivilCounter().setPoint(getCurrentGovernment().getWhitePoints().getPoints());
+//        getMilitaryCounter().setPoint(getCurrentGovernment().getRedPoints().getPoints());
+        getCivilCounter().setPoint(table.getCard政府().getWhitePoints().getPoints());
+        getMilitaryCounter().setPoint(table.getCard政府().getRedPoints().getPoints());
         System.out.println("玩家的回合開始，補充內政和軍事點數---除了政府牌以外，A領袖 漢模拉比 ，A奇蹟 金字塔 ，II特殊科技-內政，II特殊科技-內政，III特殊科技-內政");
 
         return true;
@@ -231,7 +234,7 @@ public class Player {
 //    public XXXScore get點數() {
 //        return 點數;
 //    }
-    private int 食物;//請列出食物點數的計算方式
+//    private int 食物;//請列出食物點數的計算方式
     //當我們要計算花費食物的時候要呼叫食物的副程式
     //
     //[農業0的值]=農業0的藍點數*1
@@ -245,20 +248,20 @@ public class Player {
     //2.事件獲得
     //3.侵略、戰爭獲得
     //4.黃牌獲得
-    private int 拿過的時代A領袖牌數;
+//    private int 拿過的時代A領袖牌數;
 
-    public int get拿過的時代A領袖牌數() {
-        return 拿過的時代A領袖牌數;
-    }
-
-    public void set拿過的時代A領袖牌數(int 拿過的時代A領袖牌數) {
-        this.拿過的時代A領袖牌數 = 拿過的時代A領袖牌數;
-    }
-    private int 資源;
-    private int 科技;
-//政府的影響
-//    private int 內政點數;//該玩家即時的內政點數
-    private int 軍事點數;
+//    public int get拿過的時代A領袖牌數() {
+//        return 拿過的時代A領袖牌數;
+//    }
+//
+//    public void set拿過的時代A領袖牌數(int 拿過的時代A領袖牌數) {
+//        this.拿過的時代A領袖牌數 = 拿過的時代A領袖牌數;
+//    }
+//    private int 資源;
+//    private int 科技;
+////政府的影響
+////    private int 內政點數;//該玩家即時的內政點數
+//    private int 軍事點數;
 //        System.out.println("    2, 在Player內設置當前領袖位置.戰術牌位置.待建奇蹟位置.建好的奇蹟.值民地位置,預計花0.5個小時完成,4/20日完成");
 
     //起始面板設置
@@ -440,8 +443,8 @@ public class Player {
 //        return 圖書館[k];
 //    }
 //    private int 工人閒置區;
-    private int 黃點工人供應區;
-    private int 藍點資源供應區;
+//    private int 黃點工人供應區;
+//    private int 藍點資源供應區;
 
 //    public int get內政點數() {
 //        return 內政點數;
@@ -450,13 +453,13 @@ public class Player {
 //    public void set內政點數(int 內政點數) {
 //        this.內政點數 = 內政點數;
 //    }
-    public int get軍事點數() {
-        return 軍事點數;
-    }
-
-    public void set軍事點數(int 軍事點數) {
-        this.軍事點數 = 軍事點數;
-    }
+//    public int get軍事點數() {
+//        return 軍事點數;
+//    }
+//
+//    public void set軍事點數(int 軍事點數) {
+//        this.軍事點數 = 軍事點數;
+//    }
 
 //    public int get工人閒置區() {
 //        return 工人閒置區;
@@ -465,31 +468,31 @@ public class Player {
 //    public void set工人閒置區(int 工人閒置區) {
 //        this.工人閒置區 = 工人閒置區;
 //    }
-    public int get黃點工人供應區() {
-        return 黃點工人供應區;
-    }
+//    public int get黃點工人供應區() {
+//        return 黃點工人供應區;
+//    }
+//
+//    public void set黃點工人供應區(int 黃點工人供應區) {
+//        this.黃點工人供應區 = 黃點工人供應區;
+//    }
+//
+//    public int get藍點資源供應區() {
+//        return 藍點資源供應區;
+//    }
+//
+//    public void set藍點資源供應區(int 藍點資源供應區) {
+//        this.藍點資源供應區 = 藍點資源供應區;
+//    }
 
-    public void set黃點工人供應區(int 黃點工人供應區) {
-        this.黃點工人供應區 = 黃點工人供應區;
-    }
-
-    public int get藍點資源供應區() {
-        return 藍點資源供應區;
-    }
-
-    public void set藍點資源供應區(int 藍點資源供應區) {
-        this.藍點資源供應區 = 藍點資源供應區;
-    }
-
-    private Card government;
-
-    public Card getCurrentGovernment() {
-        return government;
-    }
-
-    public void setGovernment(Card government) {
-        this.government = government;
-    }
+//    private Card government;
+//
+//    public Card getCurrentGovernment() {
+//        return government;
+//    }
+//
+//    public void setGovernment(Card government) {
+//        this.government = government;
+//    }
 //    private List<Card> init牌;
     private List<Card> 手上的牌;
 //    private List<Card> 桌上的牌;
@@ -621,7 +624,7 @@ public class Player {
         手上的牌 = new ArrayList<Card>();
 //        桌上的牌 = new ArrayList<Card>();
         工人閒置區 = new YellowBank();
-        government = new Cards().getInitGovernment();
+//        government = new Cards().getInitGovernment();
 
         //
         //
@@ -645,30 +648,30 @@ public class Player {
 //        this.資源 = 資源;
 //        this.科技 = 科技;
 //    }
-    public int get食物() {
-        return 食物;
-    }
-
-    public void set食物(int 食物) {
-        this.食物 = 食物;
-    }
-
-    public int get資源() {
-        return 資源;
-    }
-
-    public void set資源(int 資源) {
-        this.資源 = 資源;
-    }
-
-    public int get科技() {
-        return 科技;
-    }
-
-    public void set科技(int 科技) {
-        this.科技 = 科技;
-    }
+//    public int get食物() {
+//        return 食物;
+//    }
 //
+//    public void set食物(int 食物) {
+//        this.食物 = 食物;
+//    }
+
+//    public int get資源() {
+//        return 資源;
+//    }
+//
+//    public void set資源(int 資源) {
+//        this.資源 = 資源;
+//    }
+
+//    public int get科技() {
+//        return 科技;
+//    }
+//
+//    public void set科技(int 科技) {
+//        this.科技 = 科技;
+//    }
+////
 
     public void 執行生產() {
         System.out.println("   ...執行生產");
@@ -679,10 +682,10 @@ public class Player {
 //            get農場(k).doProduction();
 //            get礦山(k).doProduction();
             try {
-                table.getCard(3, k);
-                table.getCard(4, k);
+                table.getCard(3, k).doProduction();
+                table.getCard(4, k).doProduction();
             } catch (Exception ex) {
-                System.out.println("   ... ");
+                System.out.println("   no cards on age " + k);
             }
         }
     }
@@ -761,6 +764,12 @@ public class Player {
         } else if (card.get類型() == CardType.科技) {
 //            System.out.println("123");
             switch (this.get手上的牌().get(cardNum).get右上()) {
+                  case "政府":
+                    table.setCard政府(card);
+
+//                    ages農場[card.get時代()] = card;
+                    break;
+
 //                case "農場": {
 //                    System.out.println("準備設定已打出");
 //                    this.農場[this.get手上的牌().get(cardNum).get時代()].set打出(true);
@@ -792,7 +801,7 @@ public class Player {
 
 //                    ages農場[card.get時代()] = card;
                     break;
-
+              
                 default:
                     System.out.println("DEBUG...CardType.科技??? " + card.toString(6));
             }

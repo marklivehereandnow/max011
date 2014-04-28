@@ -106,23 +106,44 @@ public class CardRow {
         }
     }
 
-    public void show() {
-        System.out.println("   === Card Row ===");
+    
+    public void show(int style){
+      System.out.println("   === Card Row ===");
         System.out.print("   Value 1: ");
         for (int k = 0; k < 5; k++) {
-            System.out.print(k + cardRow.get(k).toString(5));
+            System.out.print(k + cardRow.get(k).toString(style));
         }
         System.out.println();
         System.out.print("   Value 2: ");
         for (int k = 5; k < 9; k++) {
-            System.out.print(k + cardRow.get(k).toString(5));
+            System.out.print(k + cardRow.get(k).toString(style));
         }
         System.out.println();
         System.out.print("   Value 3: ");
         for (int k = 9; k < 13; k++) {
-            System.out.print(k + cardRow.get(k).toString(5));
+            System.out.print(k + cardRow.get(k).toString(style));
         }
         System.out.println();
+        
     }
+    
+//    public void show() {
+//        System.out.println("   === Card Row ===");
+//        System.out.print("   Value 1: ");
+//        for (int k = 0; k < 5; k++) {
+//            System.out.print(k + cardRow.get(k).toString(1));
+//        }
+//        System.out.println();
+//        System.out.print("   Value 2: ");
+//        for (int k = 5; k < 9; k++) {
+//            System.out.print(k + cardRow.get(k).toString(5));
+//        }
+//        System.out.println();
+//        System.out.print("   Value 3: ");
+//        for (int k = 9; k < 13; k++) {
+//            System.out.print(k + cardRow.get(k).toString(5));
+//        }
+//        System.out.println();
+//    }
 
 }

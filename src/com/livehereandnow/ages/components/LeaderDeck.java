@@ -3,62 +3,50 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.livehereandnow.ages.components;
 
 /**
  *
  * @author mark
  */
-public class LeaderDeck {
-    boolean[] checked=new boolean[4];// for 4 ages, to check when get given age's leader's card
+public class LeaderDeck extends PlayerDeck {
+
+    boolean[] checked = new boolean[4];// for 4 ages, to check when get given age's leader's card
 
     public LeaderDeck() {
-           leader=new Card();
-        checked[0]=false;
-        checked[1]=false;
-        checked[2]=false;
-        checked[3]=false;
-        
+        super();
+        checked[0] = false;
+        checked[1] = false;
+        checked[2] = false;
+        checked[3] = false;
+
     }
 
     /**
-     * 
+     *
      * @param k age number, 0:A, 1:I, 2:II, 3:III
      * @return true: got this age's leader's before
      */
     public boolean isChecked(int k) {
         return checked[k];
     }
-    
-    public void setChecked(int k){
-        checked[k]=true;
-    }
-    
-    Card leader;
 
-    public Card getCard() {
-        return leader;
+    public void setChecked(int k) {
+        checked[k] = true;
     }
 
-    public void setCard(Card leader) {
-        this.leader = leader;
-    }
-
- 
     @Override
     public String toString() {
-        StringBuilder sb=new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.append(" ages:");
-        for (int k=0;k<4;k++){
-            if (checked[k]){
+        for (int k = 0; k < 4; k++) {
+            if (checked[k]) {
                 sb.append("*");
-            }else{
+            } else {
                 sb.append(k);
             }
         }
-        return  leader.toString(9) + sb.toString();
+        return card.toString(9) + sb.toString();
     }
-    
-    
+
 }
