@@ -138,7 +138,7 @@ public class EngineCore {
         this.set當前玩家(玩家[當前玩家ID]);
 
 //        // ver 0.40
-//        this.get當前玩家().getCivilCounter().setPoint(get當前玩家().getCurrentGovernment().getWhitePoints().getPoints());//把當前玩家的內政點數，設定為當前玩家政府的上表示的內政點數
+//        this.get當前玩家().getCivilCounter().setPoint(get當前玩家().getCurrentGovernment().getWhite().getPoints());//把當前玩家的內政點數，設定為當前玩家政府的上表示的內政點數
 //        this.get當前玩家().getMilitaryCounter().setPoint(get當前玩家().getCurrentGovernment().getRedPoints().getPoints());
          // ver 0.41 回合開始 補充玩家的內政和軍事點數，應該將功能直接做到Player去
         //希望有個指令像是get當前玩家().startRound()

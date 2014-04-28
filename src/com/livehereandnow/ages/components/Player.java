@@ -158,9 +158,9 @@ public class Player {
 
     public boolean doStartRound() throws AgesException {//ver 0.41
         System.out.println("玩家的回合開始，補充內政和軍事點數---從政府牌補充");
-//        getCivilCounter().setPoint(getCurrentGovernment().getWhitePoints().getPoints());
+//        getCivilCounter().setPoint(getCurrentGovernment().getWhite().getPoints());
 //        getMilitaryCounter().setPoint(getCurrentGovernment().getRedPoints().getPoints());
-        getCivilCounter().setPoint(table.getCard政府().getWhitePoints().getPoints());
+        getCivilCounter().setPoint(table.getCard政府().getWhite().getPoints());
         getMilitaryCounter().setPoint(table.getCard政府().getRedPoints().getPoints());
         System.out.println("玩家的回合開始，補充內政和軍事點數---除了政府牌以外，A領袖 漢模拉比 ，A奇蹟 金字塔 ，II特殊科技-內政，II特殊科技-內政，III特殊科技-內政");
 
@@ -249,7 +249,6 @@ public class Player {
     //3.侵略、戰爭獲得
     //4.黃牌獲得
 //    private int 拿過的時代A領袖牌數;
-
 //    public int get拿過的時代A領袖牌數() {
 //        return 拿過的時代A領袖牌數;
 //    }
@@ -263,7 +262,6 @@ public class Player {
 ////    private int 內政點數;//該玩家即時的內政點數
 //    private int 軍事點數;
 //        System.out.println("    2, 在Player內設置當前領袖位置.戰術牌位置.待建奇蹟位置.建好的奇蹟.值民地位置,預計花0.5個小時完成,4/20日完成");
-
     //起始面板設置
 //    private int 農業;//黃點數量
 //    private int 農業0;
@@ -445,7 +443,6 @@ public class Player {
 //    private int 工人閒置區;
 //    private int 黃點工人供應區;
 //    private int 藍點資源供應區;
-
 //    public int get內政點數() {
 //        return 內政點數;
 //    }
@@ -460,7 +457,6 @@ public class Player {
 //    public void set軍事點數(int 軍事點數) {
 //        this.軍事點數 = 軍事點數;
 //    }
-
 //    public int get工人閒置區() {
 //        return 工人閒置區;
 //    }
@@ -483,7 +479,6 @@ public class Player {
 //    public void set藍點資源供應區(int 藍點資源供應區) {
 //        this.藍點資源供應區 = 藍點資源供應區;
 //    }
-
 //    private Card government;
 //
 //    public Card getCurrentGovernment() {
@@ -655,7 +650,6 @@ public class Player {
 //    public void set食物(int 食物) {
 //        this.食物 = 食物;
 //    }
-
 //    public int get資源() {
 //        return 資源;
 //    }
@@ -663,7 +657,6 @@ public class Player {
 //    public void set資源(int 資源) {
 //        this.資源 = 資源;
 //    }
-
 //    public int get科技() {
 //        return 科技;
 //    }
@@ -672,7 +665,6 @@ public class Player {
 //        this.科技 = 科技;
 //    }
 ////
-
     public void 執行生產() {
         System.out.println("   ...執行生產");
         for (int k = 0; k < 4; k++) {
@@ -752,15 +744,12 @@ public class Player {
         //
         // card must stay on hand for at least one round
         //
-        if (card.getRound()==roundNum){
+        if (card.getRound() == roundNum) {
             System.out.println("... you cannot play this card this round ");
 
             return false;
         }
-        
-        
-        
-        
+
         //this.get桌上的牌().add(this.get手上的牌().get(cardNum));
         System.out.println("這張牌的類型是" + this.get手上的牌().get(cardNum).get類型());
         //        當打出科技牌的時候
@@ -775,7 +764,7 @@ public class Player {
         } else if (card.get類型() == CardType.科技) {
 //            System.out.println("123");
             switch (this.get手上的牌().get(cardNum).get右上()) {
-                  case "政府":
+                case "政府":
                     table.setCard政府(card);
 
 //                    ages農場[card.get時代()] = card;
@@ -786,7 +775,6 @@ public class Player {
 //                    this.農場[this.get手上的牌().get(cardNum).get時代()].set打出(true);
 //                    System.out.println("打出了嗎?" + this.農場[this.get手上的牌().get(cardNum).get時代()].is打出());
 //                }
-
                 // ver 0.44 農場 [A-農業--農場  黃點:0 藍點:0] 
                 case "實驗室":
                     table.setCard(card, 1, card.get時代());
@@ -812,7 +800,7 @@ public class Player {
 
 //                    ages農場[card.get時代()] = card;
                     break;
-              
+
                 default:
                     System.out.println("DEBUG...CardType.科技??? " + card.toString(6));
             }
@@ -873,8 +861,15 @@ public class Player {
      */
     public boolean doTakeCard(int cost, Card card) throws AgesException {
         //TODO check any not allowed...
-
         this.set失敗原因("無失敗紀錄");
+
+        //ver 0.56
+        if (card.get類型() != CardType.奇蹟) {
+            if (手上的牌.size() >= table.getCard政府().getWhite().getPoints()) {
+                this.set失敗原因("Maximun onhand card count is " + table.getCard政府().getWhite().getPoints() + " based on Government's white!");
+                return false;
+            }
+        }
 
         if (!civilCounter.isEnoughToPay(cost)) {//如果內政點數不夠支付的話
             this.set失敗原因("NOT ENOUGH CIVIL POINTS TO PAY THIS CARD," + card.get卡名());

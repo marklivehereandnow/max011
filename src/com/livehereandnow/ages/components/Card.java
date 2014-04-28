@@ -41,7 +41,7 @@ public class Card implements CardType {
       //  藍點 = 藍點 + 黃點;
           bluePoints.setPoints(bluePoints.getPoints()+yellowPoints.getPoints());
       }
-    public Points getWhitePoints() {
+    public Points getWhite() {
         return whitePoints;
     }
 

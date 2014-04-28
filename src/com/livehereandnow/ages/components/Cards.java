@@ -130,7 +130,7 @@ public class Cards implements CardType {
         //
 
 //        init政府 = new Card("Despotism", 0, "???");
-//        init政府.getWhitePoints().setPoints(4);
+//        init政府.getWhite().setPoints(4);
 //        init政府.getRedPoints().setPoints(2);
         //
         // 1.1 Goverment card
