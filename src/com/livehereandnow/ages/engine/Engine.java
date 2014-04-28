@@ -103,6 +103,13 @@ public class Engine {
 
         System.out.println();
 
+         System.out.println("  === ver 0.50 ===  2014-4-28, 15:50, by Mark　");
+        System.out.println("    1. transfer wonders from Player to PlayerTable");
+        System.out.println("    2. fixed, No repeat leader on the the age!");
+        System.out.println();
+
+        
+        
         System.out.println("  === ver 0.49 ===  2014-4-28, 15:00, by Mark　");
         System.out.println("    1. doRevolution and doGovernment using PlayerTable");
         System.out.println("    2.  //this.government = newGovt;           \n" +

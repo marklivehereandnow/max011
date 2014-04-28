@@ -21,6 +21,24 @@ import java.util.List;
 public class PlayerTable extends Object {
 
     private Card leader;
+    private List<Card> 奇蹟待建區;
+    private List<Card> 奇蹟完成區;
+
+    public List<Card> get奇蹟待建區() {
+        return 奇蹟待建區;
+    }
+
+    public void set奇蹟待建區(List<Card> 奇蹟待建區) {
+        this.奇蹟待建區 = 奇蹟待建區;
+    }
+
+    public List<Card> get奇蹟完成區() {
+        return 奇蹟完成區;
+    }
+
+    public void set奇蹟完成區(List<Card> 奇蹟完成區) {
+        this.奇蹟完成區 = 奇蹟完成區;
+    }
 
     public Card getLeader() {
         return leader;
@@ -102,10 +120,38 @@ public class PlayerTable extends Object {
         add黃點(type, ageTo, 1);
     }
 
+    public void show建造中的奇蹟() {
+//        for (int k = 0; k < 桌上的牌.size(); k++) {
+//            System.out.print(" " + 桌上的牌.get(k).toString(1));
+        System.out.print("建造中的奇蹟 ");
+        for (int k = 0; k < get奇蹟待建區().size(); k++) {
+            System.out.print(" " + get奇蹟待建區().get(k).toString(3));
+
+        }
+        System.out.println("");
+
+    }
+
+    public void show已完成的奇蹟() {
+//        for (int k = 0; k < 桌上的牌.size(); k++) {
+//            System.out.print(" " + 桌上的牌.get(k).toString(1));
+        System.out.print("已完成的奇蹟 ");
+      
+        for (int k = 0; k < get奇蹟完成區().size(); k++) {
+            System.out.print(" " + get奇蹟完成區().get(k).toString(2));
+
+        }
+        System.out.println("");
+        //   System.out.println();
+    }
+
     public PlayerTable() {
-         Card NOCARD = new Card(999, "", 0, CardType.EMPTY);
-        leader=NOCARD;
-         
+        奇蹟待建區 = new ArrayList<Card>();
+        奇蹟完成區 = new ArrayList<Card>();
+
+        Card NOCARD = new Card(999, "", -1, CardType.EMPTY);
+        leader = NOCARD;
+
         cards = new Card[6][];
         other桌上的牌 = new ArrayList<>();
         //---------------------
@@ -184,5 +230,7 @@ public class PlayerTable extends Object {
         showAgesX5();
 
         showCardsOnTable();
+        show建造中的奇蹟();
+        show已完成的奇蹟();
     }
 }

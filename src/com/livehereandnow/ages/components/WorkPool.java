@@ -11,8 +11,14 @@ package com.livehereandnow.ages.components;
  * @author max
  */
 public class WorkPool {
+    HappyFaces  happy;
     int 黃點;
 
+    public WorkPool() {
+        happy =new HappyFaces();
+    }
+
+    
     public int get黃點() {
         return 黃點;
     }
@@ -26,7 +32,7 @@ public class WorkPool {
 
     @Override
     public String toString() {
-        return "WorkPool{" + "\u9ec3\u9ede=" + 黃點 + '}';
+        return "WorkPool{" + "\u9ec3\u9ede=" + 黃點 + '}'+happy.toString();
     }
     
 }

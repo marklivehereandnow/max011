@@ -66,7 +66,7 @@ public class Player {
         // 2014-4-25 17:11
         System.out.println("   === draft by Mark (start)");
 
-        this.init牌.get(2).getYellowPoints().addPoints(1);
+//        this.init牌.get(2).getYellowPoints().addPoints(1);
         this.工人閒置區.add黃點(-1);
         System.out.println("   === draft by Mark (end)");
         //
@@ -134,12 +134,11 @@ public class Player {
             System.out.println("The index is " + cardIndex);
             Card newGovt = 手上的牌.get(cardIndex);
             System.out.println("3. Now, to replace the Govt with " + newGovt);
-             //ver 0.49
+            //ver 0.49
             //this.government = newGovt;           
             table.setCard(newGovt, 0, newGovt.get時代());
-           
-//            System.out.println("*** NOT TO ALLOW MORE THAN ONE GOVT CARD ON HAND ??? *** ");
 
+//            System.out.println("*** NOT TO ALLOW MORE THAN ONE GOVT CARD ON HAND ??? *** ");
             return true;
         } else {
             System.out.println("   No, I don't.");
@@ -168,13 +167,12 @@ public class Player {
             System.out.println("The index is " + cardIndex);
             Card newGovt = 手上的牌.get(cardIndex);
             System.out.println("3. Now, to replace the Govt with " + newGovt);
-            
+
             //ver 0.49
             //this.government = newGovt;           
             table.setCard(newGovt, 0, newGovt.get時代());
-            
-            //System.out.println("*** NOT TO ALLOW MORE THAN ONE GOVT CARD ON HAND ??? *** ");
 
+            //System.out.println("*** NOT TO ALLOW MORE THAN ONE GOVT CARD ON HAND ??? *** ");
             return true;
         } else {
             System.out.println("   No, I don't.");
@@ -184,19 +182,19 @@ public class Player {
     }
 
     public boolean doConstructWonder() throws AgesException {
-        if (get奇蹟待建區().size() == 0) {
+        if (table.get奇蹟待建區().size() == 0) {
             System.out.println("你沒有奇蹟");
             return false;
 
         }
 
-        boolean result = get奇蹟待建區().get(0).getWonderStage().addStageDoneCnt();
+        boolean result = table.get奇蹟待建區().get(0).getWonderStage().addStageDoneCnt();
         if (result) {
-            System.out.println("第" + get奇蹟待建區().get(0).getWonderStage().getStageDoneCnt() + "階段建造成功");
-            if (get奇蹟待建區().get(0).getWonderStage().getStageDoneCnt() == get奇蹟待建區().get(0).getWonderStage().stageMaxCnt) {
-                this.奇蹟完成區.add(奇蹟待建區.get(0));
-                this.奇蹟待建區.remove(0);
-                System.out.println("奇蹟待建區=" + get奇蹟待建區().size());
+            System.out.println("第" + table.get奇蹟待建區().get(0).getWonderStage().getStageDoneCnt() + "階段建造成功");
+            if (table.get奇蹟待建區().get(0).getWonderStage().getStageDoneCnt() == table.get奇蹟待建區().get(0).getWonderStage().stageMaxCnt) {
+                table.get奇蹟完成區().add(table.get奇蹟待建區().get(0));
+                table.get奇蹟待建區().remove(0);
+                System.out.println("奇蹟待建區=" + table.get奇蹟待建區().size());
             }
         } else {
             System.out.println("程式出錯了");
@@ -482,27 +480,9 @@ public class Player {
     public void setGovernment(Card government) {
         this.government = government;
     }
-    private List<Card> init牌;
+//    private List<Card> init牌;
     private List<Card> 手上的牌;
-    private List<Card> 桌上的牌;
-    private List<Card> 奇蹟待建區;
-    private List<Card> 奇蹟完成區;
-
-    public List<Card> get奇蹟待建區() {
-        return 奇蹟待建區;
-    }
-
-    public void set奇蹟待建區(List<Card> 奇蹟待建區) {
-        this.奇蹟待建區 = 奇蹟待建區;
-    }
-
-    public List<Card> get奇蹟完成區() {
-        return 奇蹟完成區;
-    }
-
-    public void set奇蹟完成區(List<Card> 奇蹟完成區) {
-        this.奇蹟完成區 = 奇蹟完成區;
-    }
+//    private List<Card> 桌上的牌;
 
     public boolean is已拿取時代領袖(int k) {//是不是已拿過該時代的領袖牌
         return 已拿取時代領袖[k];
@@ -530,39 +510,36 @@ public class Player {
             }
 
         }
-        for (int k = 0; k < this.get桌上的牌().size(); k++) {
-            System.out.println("這是目前桌上的牌 " + k + " " + this.get桌上的牌().get(k).toString(1));
-            if (card.get卡名() == this.get桌上的牌().get(k).get卡名()) {
-                return true;
-            }
-
-        }
+//        for (int k = 0; k < this.get桌上的牌().size(); k++) {
+//            System.out.println("這是目前桌上的牌 " + k + " " + this.get桌上的牌().get(k).toString(1));
+//            if (card.get卡名() == this.get桌上的牌().get(k).get卡名()) {
+//                return true;
+//            }
+//
+//        }
 
 //        this.get
         return false;//DEBUG,假設沒拿過該張科技牌
     }
 
-    public boolean is已拿取時代領袖(Card card) {//是不是拿過這張科技牌
-//     * 當想要拿科技牌時，檢查手上和桌上是不是有同卡名的
-//        想要拿的科技牌:card
-//        手上的牌
-//        桌上的牌
-//        System.out.println("想要拿取 " + card.toString(1));
-
+    public boolean isSameAgeLeaderOnHande已拿取時代領袖(Card card) {//是不是拿過這張科技牌
         for (int k = 0; k < this.get手上的牌().size(); k++) {
             System.out.println("這是目前手上的牌 " + k + " " + this.get手上的牌().get(k).toString(1));
             if (card.get時代() == this.get手上的牌().get(k).get時代()) {
                 return true;
             }
+        }
 
+        return false;
+    }
+
+    public boolean isSameAgeLeaderOnTable(Card card) {
+        if (table.getLeader().get時代() == card.get時代()) {
+            System.out.println(" on table, current leader is" + table.getLeader().toString(9));
+
+            return true;
         }
-        for (int k = 0; k < this.get桌上的牌().size(); k++) {
-            System.out.println("這是目前桌上的牌 " + k + " " + this.get桌上的牌().get(k).toString(1));
-            if (card.get時代() == this.get桌上的牌().get(k).get時代()) {
-                return true;
-            }
-        }
-        return false;//DEBUG,假設沒拿過該時代領袖牌
+        return false;
     }
 
     public boolean is有沒有奇蹟待建(Card card) {//是不是拿過這張科技牌
@@ -572,7 +549,7 @@ public class Player {
 //        桌上的牌
 //        System.out.println("想要拿取 " + card.toString(1));
 
-        if (this.奇蹟待建區.size() != 0) {
+        if (table.get奇蹟待建區().size() != 0) {
             System.out.println("尚有待建的奇蹟 ");
             return true;
         }
@@ -637,17 +614,15 @@ public class Player {
         資源 = 0;
         科技 = 0;
         手上的牌 = new ArrayList<Card>();
-        桌上的牌 = new ArrayList<Card>();
-        奇蹟待建區 = new ArrayList<Card>();
-        奇蹟完成區 = new ArrayList<Card>();
+//        桌上的牌 = new ArrayList<Card>();
         工人閒置區 = new WorkPool();
-        init牌 = new Cards().copyInitCards();
-
-        init牌.get(0).getYellowPoints().setPoints(1);
-        init牌.get(1).getYellowPoints().setPoints(0);
-        init牌.get(2).getYellowPoints().setPoints(2);
-        init牌.get(3).getYellowPoints().setPoints(2);
-        init牌.get(4).getYellowPoints().setPoints(1);
+//        init牌 = new Cards().copyInitCards();
+//
+//        init牌.get(0).getYellowPoints().setPoints(1);
+//        init牌.get(1).getYellowPoints().setPoints(0);
+//        init牌.get(2).getYellowPoints().setPoints(2);
+//        init牌.get(3).getYellowPoints().setPoints(2);
+//        init牌.get(4).getYellowPoints().setPoints(1);
 
         government = new Cards().getInitGovernment();
 
@@ -744,14 +719,13 @@ public class Player {
 
     }
 
-    public List<Card> get桌上的牌() {
-        return 桌上的牌;
-    }
-
-    public void set桌上的牌(List<Card> 桌上的牌) {
-        this.桌上的牌 = 桌上的牌;
-    }
-
+//    public List<Card> get桌上的牌() {
+//        return 桌上的牌;
+//    }
+//
+//    public void set桌上的牌(List<Card> 桌上的牌) {
+//        this.桌上的牌 = 桌上的牌;
+//    }
     public boolean doPlayCard(int cardNum) throws AgesException {
         //
         // 
@@ -886,13 +860,13 @@ public class Player {
                     return false;
                 } else {
 //                    手上的牌.add(card);
-                    this.奇蹟待建區.add(card);
+                    table.get奇蹟待建區().add(card);
                 }
                 break;
             }
 //            case CardType.領袖: {//當拿取領袖牌的時候，
 //
-//                if (this.is已拿取時代領袖(card.時代)) {//先檢測是否拿過該時代的領袖牌
+//                if (this.isSameAgeLeaderOnHande已拿取時代領袖(card.時代)) {//先檢測是否拿過該時代的領袖牌
 //
 //                    this.set失敗原因("已經拿過" + card.時代 + "時代的領袖牌");
 ////                    System.out.println("已經拿過" + card.時代 + "時代的領袖牌");//          如果拿過，則提示已經拿過， 
@@ -906,10 +880,16 @@ public class Player {
 //                break;
 //            }
             case CardType.領袖: {
-                if (this.is已拿取時代領袖(card)) {
-                    this.set失敗原因("已經拿過[" + card.get時代() + "]領袖牌");
+                if (this.isSameAgeLeaderOnHande已拿取時代領袖(card)) {
+                    this.set失敗原因(" check your on-hand");
                     return false;
-                } else {
+                } else if (this.isSameAgeLeaderOnTable(card)){
+                    this.set失敗原因(" check your table");
+                    return false;
+                    
+                    
+                        }
+                    else {
                     手上的牌.add(card);
                 }
 
@@ -975,7 +955,9 @@ public class Player {
         System.out.println("   內政點數=" + getCivilCounter().getPoint());
         System.out.println("   軍事點數=" + getMilitaryCounter().getPoint());
         showCards();
+//        System.out.println("    工人閒置區:"+  工人閒置區.toString());
         System.out.println("\n   " + get點數());
+
 //        show農場礦山實驗室神廟步兵();
     }
 
@@ -1023,33 +1005,32 @@ public class Player {
 //        showInitCards();
         table.show();
         System.out.println("--------------------------");
+        System.out.print("   工人閒置區 " + this.get工人閒置區());
 
         System.out.print("\n   手牌 ");
         showCardsOnHand();
-        System.out.print("   工人閒置區 " + this.get工人閒置區());
+//        System.out.print("   工人閒置區 " + this.get工人閒置區());
 
-        System.out.print("\n   桌牌 ");
+//        System.out.print("\n   桌牌 ");
 //        showCardsOnTable();
-        System.out.print("   建造中的奇蹟 ");
-        show建造中的奇蹟();
-        System.out.print("   已完成的奇蹟 ");
-        show已完成的奇蹟();
+//        System.out.print("   建造中的奇蹟 ");
+//        show建造中的奇蹟();
+//        System.out.print("   已完成的奇蹟 ");
+//        show已完成的奇蹟();
         System.out.println("");
     }
 
-    public void showInitCards() {
-//        System.out.println();
-        for (int k = 0; k < init牌.size(); k++) {
-            System.out.println("     " + k + init牌.get(k).toString(6));
-        }
-
-    }
-
-    public void showGovernmentCard() {
-        System.out.println("   Govt: " + government.toString(7));
-
-    }
-
+//    public void showInitCards() {
+////        System.out.println();
+//        for (int k = 0; k < init牌.size(); k++) {
+//            System.out.println("     " + k + init牌.get(k).toString(6));
+//        }
+//
+//    }
+//    public void showGovernmentCard() {
+//        System.out.println("   Govt: " + government.toString(7));
+//
+//    }
     public void showCardsOnHand() {
         for (int k = 0; k < 手上的牌.size(); k++) {
             System.out.print(" " + k + 手上的牌.get(k).toString(5));
@@ -1063,26 +1044,6 @@ public class Player {
 //        }
 //        //   System.out.println();
 //    }
-    public void show建造中的奇蹟() {
-//        for (int k = 0; k < 桌上的牌.size(); k++) {
-//            System.out.print(" " + 桌上的牌.get(k).toString(1));
-        for (int k = 0; k < 奇蹟待建區.size(); k++) {
-            System.out.print(" " + this.奇蹟待建區.get(k).toString(3));
-
-        }
-
-    }
-
-    public void show已完成的奇蹟() {
-//        for (int k = 0; k < 桌上的牌.size(); k++) {
-//            System.out.print(" " + 桌上的牌.get(k).toString(1));
-        for (int k = 0; k < 奇蹟完成區.size(); k++) {
-            System.out.print(" " + this.奇蹟完成區.get(k).toString(2));
-
-        }
-        //   System.out.println();
-    }
-
 //
 //    public void show() {
 //        System.out.print(" 手上的牌 ");

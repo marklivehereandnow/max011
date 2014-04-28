@@ -13,5 +13,11 @@ import com.livehereandnow.ages.exception.AgesException;
  * @author mark
  */
 public class HappyFaces extends Points{
+
+    @Override
+    public String toString() {
+        return " HappyFaces{" +this.getPoints()+ '}';
+    }
+    
   
 }
