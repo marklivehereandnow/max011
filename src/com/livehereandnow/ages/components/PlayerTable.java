@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class PlayerTable extends Object {
 
-    private Card leader;
+    private LeaderDeck leader;
     private List<Card> 奇蹟待建區;
     private List<Card> 奇蹟完成區;
 
@@ -40,9 +40,9 @@ public class PlayerTable extends Object {
         this.奇蹟完成區 = 奇蹟完成區;
     }
 
-    public Card getLeader() {
-        return leader;
-    }
+//    public Card getLeaderDeck() {
+//        return leader;
+//    }
     private Card[] cards政府;
     private Card[] cards實驗室;
     private Card[] cards神廟;
@@ -92,9 +92,9 @@ public class PlayerTable extends Object {
         other桌上的牌.add(card);
     }
 
-    public void setLeader(Card card) {
-        leader = card;
-    }
+//    public void setLeader(Card card) {
+//        leader = card;
+//    }
 
     /**
      *
@@ -149,13 +149,17 @@ public class PlayerTable extends Object {
         //   System.out.println();
     }
 
+    public LeaderDeck getLeaderDeck() {
+        return leader;
+    }
+
     public PlayerTable() {
         奇蹟待建區 = new ArrayList<Card>();
         奇蹟完成區 = new ArrayList<Card>();
-
+        leader =new LeaderDeck();
         Card NOCARD = new Card(999, "", -1, CardType.EMPTY);
-        leader = NOCARD;
-
+//        leader = NOCARD;
+        leader.setCard(NOCARD);
         cards = new Card[6][];
         other桌上的牌 = new ArrayList<>();
         //---------------------
@@ -193,7 +197,7 @@ public class PlayerTable extends Object {
     }
 
     private void show領袖() {
-        System.out.println("    領袖 " + leader.toString(9));
+        System.out.println("    領袖 " + leader.toString());
 
     }
 

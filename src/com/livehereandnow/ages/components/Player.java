@@ -78,9 +78,9 @@ public class Player {
         System.out.println("工人區" + 工人閒置區.getPoints());
         this.工人閒置區.addPoints(-1);
         System.out.println("工人區" + 工人閒置區.getPoints());
-        System.out.println("農場0黃" + this.農場[0].get黃點());
-        this.農場[0].set黃點(this.農場[0].get黃點() + 1);
-        System.out.println("農場0黃" + this.農場[0].get黃點());
+//        System.out.println("農場0黃" + this.農場[0].get黃點());
+//        this.農場[0].set黃點(this.農場[0].get黃點() + 1);
+//        System.out.println("農場0黃" + this.農場[0].get黃點());
         return true;
     }
 
@@ -289,107 +289,105 @@ public class Player {
 //    private boolean[] 打出農業科技=new boolean[4];//記錄科技是否已經啟用
 ////    private boolean[] 打出農業科技=new boolean[4];//記錄科技是否已經啟用
     //科技區
-    private Agriculture[] 農場 = new Agriculture[4];
-    private Agriculture[] 礦山 = new Agriculture[4];//礦業的需求與農業相同，
-    private Agriculture[] 神廟 = new Agriculture[4];
-    private Agriculture[] 實驗室 = new Agriculture[4];
-    private Agriculture[] 步兵 = new Agriculture[4];
-    private Agriculture[] 騎兵 = new Agriculture[4];
-    private Agriculture[] 砲兵 = new Agriculture[4];
-    private Agriculture[] 飛機 = new Agriculture[4];
-    private Agriculture[] 競技場 = new Agriculture[4];
-    private Agriculture[] 劇院 = new Agriculture[4];
-    private Agriculture[] 圖書館 = new Agriculture[4];
-    private boolean[] 已拿取時代領袖 = new boolean[4];
-
-    public Agriculture[] get農場() {
-        return 農場;
-    }
-
-    public void set農場(Agriculture[] 農場) {
-        this.農場 = 農場;
-    }
-
-    public Agriculture[] get礦山() {
-        return 礦山;
-    }
-
-    public void set礦山(Agriculture[] 礦山) {
-        this.礦山 = 礦山;
-    }
-
-    public Agriculture[] get神廟() {
-        return 神廟;
-    }
-
-    public void set神廟(Agriculture[] 神廟) {
-        this.神廟 = 神廟;
-    }
-
-    public Agriculture[] get實驗室() {
-        return 實驗室;
-    }
-
-    public void set實驗室(Agriculture[] 實驗室) {
-        this.實驗室 = 實驗室;
-    }
-
-    public Agriculture[] get步兵() {
-        return 步兵;
-    }
-
-    public void set步兵(Agriculture[] 步兵) {
-        this.步兵 = 步兵;
-    }
-
-    public Agriculture[] get騎兵() {
-        return 騎兵;
-    }
-
-    public void set騎兵(Agriculture[] 騎兵) {
-        this.騎兵 = 騎兵;
-    }
-
-    public Agriculture[] get砲兵() {
-        return 砲兵;
-    }
-
-    public void set砲兵(Agriculture[] 砲兵) {
-        this.砲兵 = 砲兵;
-    }
-
-    public Agriculture[] get飛機() {
-        return 飛機;
-    }
-
-    public void set飛機(Agriculture[] 飛機) {
-        this.飛機 = 飛機;
-    }
-
-    public Agriculture[] get競技場() {
-        return 競技場;
-    }
-
-    public void set競技場(Agriculture[] 競技場) {
-        this.競技場 = 競技場;
-    }
-
-    public Agriculture[] get劇院() {
-        return 劇院;
-    }
-
-    public void set劇院(Agriculture[] 劇院) {
-        this.劇院 = 劇院;
-    }
-
-    public Agriculture[] get圖書館() {
-        return 圖書館;
-    }
-
-    public void set圖書館(Agriculture[] 圖書館) {
-        this.圖書館 = 圖書館;
-    }
-
+//    private Agriculture[] 農場 = new Agriculture[4];
+//    private Agriculture[] 礦山 = new Agriculture[4];//礦業的需求與農業相同，
+//    private Agriculture[] 神廟 = new Agriculture[4];
+//    private Agriculture[] 實驗室 = new Agriculture[4];
+//    private Agriculture[] 步兵 = new Agriculture[4];
+//    private Agriculture[] 騎兵 = new Agriculture[4];
+//    private Agriculture[] 砲兵 = new Agriculture[4];
+//    private Agriculture[] 飛機 = new Agriculture[4];
+//    private Agriculture[] 競技場 = new Agriculture[4];
+//    private Agriculture[] 劇院 = new Agriculture[4];
+//    private Agriculture[] 圖書館 = new Agriculture[4];
+//    private boolean[] 已拿取時代領袖 = new boolean[4];
+//    public Agriculture[] get農場() {
+//        return 農場;
+//    }
+//
+//    public void set農場(Agriculture[] 農場) {
+//        this.農場 = 農場;
+//    }
+//
+//    public Agriculture[] get礦山() {
+//        return 礦山;
+//    }
+//
+//    public void set礦山(Agriculture[] 礦山) {
+//        this.礦山 = 礦山;
+//    }
+//
+//    public Agriculture[] get神廟() {
+//        return 神廟;
+//    }
+//
+//    public void set神廟(Agriculture[] 神廟) {
+//        this.神廟 = 神廟;
+//    }
+//
+//    public Agriculture[] get實驗室() {
+//        return 實驗室;
+//    }
+//
+//    public void set實驗室(Agriculture[] 實驗室) {
+//        this.實驗室 = 實驗室;
+//    }
+//
+//    public Agriculture[] get步兵() {
+//        return 步兵;
+//    }
+//
+//    public void set步兵(Agriculture[] 步兵) {
+//        this.步兵 = 步兵;
+//    }
+//
+//    public Agriculture[] get騎兵() {
+//        return 騎兵;
+//    }
+//
+//    public void set騎兵(Agriculture[] 騎兵) {
+//        this.騎兵 = 騎兵;
+//    }
+//
+//    public Agriculture[] get砲兵() {
+//        return 砲兵;
+//    }
+//
+//    public void set砲兵(Agriculture[] 砲兵) {
+//        this.砲兵 = 砲兵;
+//    }
+//
+//    public Agriculture[] get飛機() {
+//        return 飛機;
+//    }
+//
+//    public void set飛機(Agriculture[] 飛機) {
+//        this.飛機 = 飛機;
+//    }
+//
+//    public Agriculture[] get競技場() {
+//        return 競技場;
+//    }
+//
+//    public void set競技場(Agriculture[] 競技場) {
+//        this.競技場 = 競技場;
+//    }
+//
+//    public Agriculture[] get劇院() {
+//        return 劇院;
+//    }
+//
+//    public void set劇院(Agriculture[] 劇院) {
+//        this.劇院 = 劇院;
+//    }
+//
+//    public Agriculture[] get圖書館() {
+//        return 圖書館;
+//    }
+//
+//    public void set圖書館(Agriculture[] 圖書館) {
+//        this.圖書館 = 圖書館;
+//    }
     public List<Card> get手上的牌() {
         return 手上的牌;
     }
@@ -398,50 +396,49 @@ public class Player {
         this.手上的牌 = 手上的牌;
     }
 
-    public Agriculture get農場(int k) {
-        return 農場[k];
-    }
-
-    public Agriculture get礦山(int k) {
-        return 礦山[k];
-    }
-
-    public Agriculture get神廟(int k) {
-        return 神廟[k];
-    }
-
-    public Agriculture get實驗室(int k) {
-        return 實驗室[k];
-    }
-
-    public Agriculture get步兵(int k) {
-        return 步兵[k];
-    }
-
-    public Agriculture get騎兵(int k) {
-        return 騎兵[k];
-    }
-
-    public Agriculture get砲兵(int k) {
-        return 砲兵[k];
-    }
-
-    public Agriculture get競技場(int k) {
-        return 競技場[k];
-    }
-
-    public Agriculture get飛機(int k) {
-        return 飛機[k];
-    }
-
-    public Agriculture get劇院(int k) {
-        return 劇院[k];
-    }
-
-    public Agriculture get圖書館(int k) {
-        return 圖書館[k];
-    }
-
+//    public Agriculture get農場(int k) {
+//        return 農場[k];
+//    }
+//
+//    public Agriculture get礦山(int k) {
+//        return 礦山[k];
+//    }
+//
+//    public Agriculture get神廟(int k) {
+//        return 神廟[k];
+//    }
+//
+//    public Agriculture get實驗室(int k) {
+//        return 實驗室[k];
+//    }
+//
+//    public Agriculture get步兵(int k) {
+//        return 步兵[k];
+//    }
+//
+//    public Agriculture get騎兵(int k) {
+//        return 騎兵[k];
+//    }
+//
+//    public Agriculture get砲兵(int k) {
+//        return 砲兵[k];
+//    }
+//
+//    public Agriculture get競技場(int k) {
+//        return 競技場[k];
+//    }
+//
+//    public Agriculture get飛機(int k) {
+//        return 飛機[k];
+//    }
+//
+//    public Agriculture get劇院(int k) {
+//        return 劇院[k];
+//    }
+//
+//    public Agriculture get圖書館(int k) {
+//        return 圖書館[k];
+//    }
 //    private int 工人閒置區;
     private int 黃點工人供應區;
     private int 藍點資源供應區;
@@ -497,10 +494,9 @@ public class Player {
     private List<Card> 手上的牌;
 //    private List<Card> 桌上的牌;
 
-    public boolean is已拿取時代領袖(int k) {//是不是已拿過該時代的領袖牌
-        return 已拿取時代領袖[k];
-    }
-
+//    public boolean is已拿取時代領袖(int k) {//是不是已拿過該時代的領袖牌
+//        return 已拿取時代領袖[k];
+//    }
     /**
      * 當想要拿科技牌時，檢查手上和桌上是不是有同卡名的牌 有的話，回是 .true 沒有的話，回不是 .false
      *
@@ -535,26 +531,30 @@ public class Player {
         return false;//DEBUG,假設沒拿過該張科技牌
     }
 
-    public boolean isSameAgeLeaderOnHande已拿取時代領袖(Card card) {//是不是拿過這張科技牌
-        for (int k = 0; k < this.get手上的牌().size(); k++) {
-            System.out.println("這是目前手上的牌 " + k + " " + this.get手上的牌().get(k).toString(1));
-            if (card.get時代() == this.get手上的牌().get(k).get時代()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public boolean isSameAgeLeaderOnTable(Card card) {
-        if (table.getLeader().get時代() == card.get時代()) {
-            System.out.println(" on table, current leader is" + table.getLeader().toString(9));
-
-            return true;
-        }
-        return false;
-    }
-
+//    public boolean isSameAgeLeaderOnHand已拿取時代領袖(Card card) {//是不是拿過這張科技牌
+//        if (card.get右上().equals("領袖")) {
+//            for (int k = 0; k < this.get手上的牌().size(); k++) {
+//                System.out.println(" isSameAgeLeaderOnHande已拿取時代領袖...這是目前手上的牌 " + k + " " + this.get手上的牌().get(k).toString(1));
+//                if (card.get時代() == this.get手上的牌().get(k).get時代()) {
+//                    return true;
+//                }
+//            }
+//        }
+//        System.out.println(" ... on hande, checked, clean");
+//        return false;
+//    }
+//
+//    public boolean isSameAgeLeaderOnTable(Card card) {
+//        if (card.get右上().equals("領袖")) {
+//
+//            if (table.getLeaderDeck().get時代() == card.get時代()) {
+//                System.out.println(" on table, current leader is" + table.getLeaderDeck().toString(9));
+//
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
     public boolean is有沒有奇蹟待建(Card card) {//是不是拿過這張科技牌
 //     * 當想要拿科技牌時，檢查手上和桌上是不是有同卡名的
 //        想要拿的科技牌:card
@@ -623,13 +623,12 @@ public class Player {
         工人閒置區 = new YellowBank();
         government = new Cards().getInitGovernment();
 
-        
         //
         //
         //
         blueBank.setPoints(66);
         工人閒置區.setPoints(77);
-        
+
     }
 
 //    public int get文明() {
@@ -672,13 +671,19 @@ public class Player {
 //
 
     public void 執行生產() {
+        System.out.println("   ...執行生產");
         for (int k = 0; k < 4; k++) {
             //
 //            get農場(k).set藍點(get農場(k).get藍點() + get農場(k).get黃點());
 //            get礦山(k).set藍點(get礦山(k).get藍點() + get礦山(k).get黃點());
-            get農場(k).doProduction();
-            get礦山(k).doProduction();
-
+//            get農場(k).doProduction();
+//            get礦山(k).doProduction();
+            try {
+                table.getCard(3, k);
+                table.getCard(4, k);
+            } catch (Exception ex) {
+                System.out.println("   ... ");
+            }
         }
     }
 
@@ -687,40 +692,39 @@ public class Player {
 //      文化 文化生產
 //    科技 科技生產
 //    軍力 笑臉
-    public void 展示現況() {
-//        System.out.println("執行展示...");
-//        for (int k = 0; k < 4; k++) {
-        for (int k = 3; k >= 0; k--) {
-//            System.out.println("k="+k);
-            if (get農場(k).is打出() == true) {
-                System.out.print("農場" + k + "  " + get農場(k).get黃點() + "(黃點)/" + get農場(k).get藍點() + "(藍點)  ");
-            } else {
-                System.out.print("                        ");
-            }
-            if (get礦山(k).is打出() == true) {
-                System.out.print("礦山" + k + "  " + get礦山(k).get黃點() + "(黃點)/" + get農場(k).get藍點() + "(藍點)  ");
-            } else {
-                System.out.print("                        ");
-            }
-            if (get實驗室(k).is打出() == true) {
-                System.out.print("實驗室" + k + "  " + get實驗室(k).get黃點() + "(黃點)  ");
-            } else {
-                System.out.print("                        ");
-            }
-            if (get神廟(k).is打出() == true) {
-                System.out.print("神廟" + k + "  " + get神廟(k).get黃點() + "(黃點)  ");
-            } else {
-                System.out.print("                        ");
-            }
-            if (get步兵(k).is打出() == true) {
-                System.out.println("步兵" + k + "  " + get步兵(k).get黃點() + "(黃點)  ");
-            } else {
-                System.out.print("                        ");
-            }
-        }
-
-    }
-
+//    public void 展示現況() {
+////        System.out.println("執行展示...");
+////        for (int k = 0; k < 4; k++) {
+//        for (int k = 3; k >= 0; k--) {
+////            System.out.println("k="+k);
+//            if (get農場(k).is打出() == true) {
+//                System.out.print("農場" + k + "  " + get農場(k).get黃點() + "(黃點)/" + get農場(k).get藍點() + "(藍點)  ");
+//            } else {
+//                System.out.print("                        ");
+//            }
+//            if (get礦山(k).is打出() == true) {
+//                System.out.print("礦山" + k + "  " + get礦山(k).get黃點() + "(黃點)/" + get農場(k).get藍點() + "(藍點)  ");
+//            } else {
+//                System.out.print("                        ");
+//            }
+//            if (get實驗室(k).is打出() == true) {
+//                System.out.print("實驗室" + k + "  " + get實驗室(k).get黃點() + "(黃點)  ");
+//            } else {
+//                System.out.print("                        ");
+//            }
+//            if (get神廟(k).is打出() == true) {
+//                System.out.print("神廟" + k + "  " + get神廟(k).get黃點() + "(黃點)  ");
+//            } else {
+//                System.out.print("                        ");
+//            }
+//            if (get步兵(k).is打出() == true) {
+//                System.out.println("步兵" + k + "  " + get步兵(k).get黃點() + "(黃點)  ");
+//            } else {
+//                System.out.print("                        ");
+//            }
+//        }
+//
+//    }
 //    public List<Card> get桌上的牌() {
 //        return 桌上的牌;
 //    }
@@ -751,8 +755,9 @@ public class Player {
 
 //        if (this.get手上的牌().get(cardNum).get類型() == CardType.科技) {
         if (card.get類型() == CardType.領袖) {
-//      
-            table.setLeader(card);
+//          
+//            table.get
+            table.getLeaderDeck().setCard(card);
         } else if (card.get類型() == CardType.科技) {
 //            System.out.println("123");
             switch (this.get手上的牌().get(cardNum).get右上()) {
@@ -869,7 +874,7 @@ public class Player {
             }
 //            case CardType.領袖: {//當拿取領袖牌的時候，
 //
-//                if (this.isSameAgeLeaderOnHande已拿取時代領袖(card.時代)) {//先檢測是否拿過該時代的領袖牌
+//                if (this.isSameAgeLeaderOnHand已拿取時代領袖(card.時代)) {//先檢測是否拿過該時代的領袖牌
 //
 //                    this.set失敗原因("已經拿過" + card.時代 + "時代的領袖牌");
 ////                    System.out.println("已經拿過" + card.時代 + "時代的領袖牌");//          如果拿過，則提示已經拿過， 
@@ -883,33 +888,29 @@ public class Player {
 //                break;
 //            }
             case CardType.領袖: {
-                if (this.isSameAgeLeaderOnHande已拿取時代領袖(card)) {
-                    this.set失敗原因(" check your on-hand");
-                    return false;
-                } else if (this.isSameAgeLeaderOnTable(card)) {
-                    this.set失敗原因(" check your table");
-                    return false;
-
+//                System.out.println(" DOING...  ... NEED TO CHECH IF ANY LEADER CARD ON HAND OR ON TABLE");
+                if (table.getLeaderDeck().isChecked(card.get時代())) {
+                    System.out.println("   ... this age is checked, you cannot get this age's leader card any more!");
                 } else {
-                    手上的牌.add(card);
-                }
 
+                    手上的牌.add(card);
+                    table.getLeaderDeck().setChecked(card.get時代());
+                }
                 break;
             }
 //            當拿取科技牌的時候，
 //            先檢測是否拿過
             case CardType.科技: {
-                if (this.is已拿過該科技牌(card)) {
-                    this.set失敗原因("已經拿過[" + card.get卡名() + "]科技牌");
-                    return false;
-                } else {
-                    手上的牌.add(card);
-                }
+                System.out.println("   ... NEED TO CHECH IF ANY 科技 CARD ON HAND OR ON TABLE");
+
+                手上的牌.add(card);
 
                 break;
             }
             case CardType.行動: {
-                手上的牌.add(card);
+                System.out.println("   ... NEED TO PERFORM 行動 ...");
+
+                //手上的牌.add(card);
                 break;
             }
             default:
@@ -970,43 +971,42 @@ public class Player {
     }
 
 //            礦山 實驗室 神廟  步兵
-    public void show農場礦山實驗室神廟步兵() {
-        String strAges[] = {"A", "I", "II", "III"};
-
-        System.out.print("   農場 (Ages)黃點=>藍點, ");
-        for (int k = 3; k >= 0; k--) {
-            if (this.農場[k].is打出() == true) {
-                System.out.print(" (" + strAges[k] + ")" + get農場(k).toString(1));
-            }
-        }
-
-        System.out.print("\n   礦山 (Ages)黃點=>藍點, ");
-        for (int k = 3; k >= 0; k--) {
-            if (this.礦山[k].is打出() == true) {
-                System.out.print(" (" + strAges[k] + ")" + get礦山(k).toString(1));
-            }
-        }
-        System.out.print("\n   實驗室 (Ages)黃點=>藍點, ");
-        for (int k = 3; k >= 0; k--) {
-            if (this.實驗室[k].is打出() == true) {
-                System.out.print(" (" + strAges[k] + ")" + get實驗室(k).toString(2));
-            }
-        }
-        System.out.print("\n   神廟 (Ages)黃點=>藍點, ");
-        for (int k = 3; k >= 0; k--) {
-            if (this.神廟[k].is打出() == true) {
-                System.out.print(" (" + strAges[k] + ")" + get神廟(k).toString(2));
-            }
-        }
-        System.out.print("\n   步兵 (Ages)黃點=>藍點, ");
-        for (int k = 3; k >= 0; k--) {
-            if (this.步兵[k].is打出() == true) {
-                System.out.print(" (" + strAges[k] + ")" + get步兵(k).toString(2));
-            }
-        }
-        System.out.println("");
-    }
-
+//    public void show農場礦山實驗室神廟步兵() {
+//        String strAges[] = {"A", "I", "II", "III"};
+//
+//        System.out.print("   農場 (Ages)黃點=>藍點, ");
+//        for (int k = 3; k >= 0; k--) {
+//            if (this.農場[k].is打出() == true) {
+//                System.out.print(" (" + strAges[k] + ")" + get農場(k).toString(1));
+//            }
+//        }
+//
+//        System.out.print("\n   礦山 (Ages)黃點=>藍點, ");
+//        for (int k = 3; k >= 0; k--) {
+//            if (this.礦山[k].is打出() == true) {
+//                System.out.print(" (" + strAges[k] + ")" + get礦山(k).toString(1));
+//            }
+//        }
+//        System.out.print("\n   實驗室 (Ages)黃點=>藍點, ");
+//        for (int k = 3; k >= 0; k--) {
+//            if (this.實驗室[k].is打出() == true) {
+//                System.out.print(" (" + strAges[k] + ")" + get實驗室(k).toString(2));
+//            }
+//        }
+//        System.out.print("\n   神廟 (Ages)黃點=>藍點, ");
+//        for (int k = 3; k >= 0; k--) {
+//            if (this.神廟[k].is打出() == true) {
+//                System.out.print(" (" + strAges[k] + ")" + get神廟(k).toString(2));
+//            }
+//        }
+//        System.out.print("\n   步兵 (Ages)黃點=>藍點, ");
+//        for (int k = 3; k >= 0; k--) {
+//            if (this.步兵[k].is打出() == true) {
+//                System.out.print(" (" + strAges[k] + ")" + get步兵(k).toString(2));
+//            }
+//        }
+//        System.out.println("");
+//    }
     public void showBanksAndPool() {
         System.out.println("--------------------------");
         System.out.println("   BlueBank" + getBlueBank());

@@ -21,6 +21,10 @@ public class Card implements CardType {
     private Points whitePoints;
     private Points redPoints;
 
+      public void doProduction() {
+      //  藍點 = 藍點 + 黃點;
+          bluePoints.setPoints(bluePoints.getPoints()+yellowPoints.getPoints());
+      }
     public Points getWhitePoints() {
         return whitePoints;
     }
