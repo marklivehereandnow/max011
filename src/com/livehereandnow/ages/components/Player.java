@@ -26,6 +26,8 @@ public class Player {
     private Counter civilCounter;
     private Counter militaryCounter;
 
+    private ScoreBoard scoreBoard;
+    private Points workPool;
     private PlayerTable table;
 
 //    private Card[] ages實驗室;
@@ -67,15 +69,15 @@ public class Player {
         System.out.println("   === draft by Mark (start)");
 
 //        this.init牌.get(2).getYellowPoints().addPoints(1);
-        this.工人閒置區.add黃點(-1);
+        this.工人閒置區.addPoints(-1);
         System.out.println("   === draft by Mark (end)");
         //
 
         //
         System.out.println("玩家的DOFarm");
-        System.out.println("工人區" + 工人閒置區.get黃點());
-        this.工人閒置區.set黃點(工人閒置區.get黃點() - 1);
-        System.out.println("工人區" + 工人閒置區.get黃點());
+        System.out.println("工人區" + 工人閒置區.getPoints());
+        this.工人閒置區.addPoints(-1);
+        System.out.println("工人區" + 工人閒置區.getPoints());
         System.out.println("農場0黃" + this.農場[0].get黃點());
         this.農場[0].set黃點(this.農場[0].get黃點() + 1);
         System.out.println("農場0黃" + this.農場[0].get黃點());
@@ -204,19 +206,24 @@ public class Player {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    WorkPool 工人閒置區;
+    YellowBank 工人閒置區;
+    BlueBank blueBank;
 
-    public WorkPool get工人閒置區() {
+    public BlueBank getBlueBank() {
+        return blueBank;
+    }
+
+    public YellowBank get工人閒置區() {
         return 工人閒置區;
     }
 
 //  A{文明,食物,资源,科技}={0,0,0,0}
-    private int 文明;
-    private Score 點數;
-
-    public Score get點數() {
-        return 點數;
-    }
+//    private int 文明;
+//    private XXXScore 點數;
+//
+//    public XXXScore get點數() {
+//        return 點數;
+//    }
 
     private int 食物;//請列出食物點數的計算方式
     //當我們要計算花費食物的時候要呼叫食物的副程式
@@ -565,6 +572,9 @@ public class Player {
 
     //起始設定
     public Player() {
+        workPool = new Points();
+        scoreBoard = new ScoreBoard();
+        blueBank = new BlueBank();
         table = new PlayerTable();
         table.add黃點(1, 0, 1);
         table.add黃點(2, 0, 0);
@@ -585,7 +595,7 @@ public class Player {
         civilCounter = new Counter();
         militaryCounter = new Counter();
         失敗原因 = "";
-        點數 = new Score();
+//        點數 = new XXXScore();
         for (int k = 0; k < 4; k++) {
             已拿取時代領袖[k] = false;
             農場[k] = new Agriculture(0, 0, false, false);
@@ -609,13 +619,13 @@ public class Player {
         實驗室[0] = new Agriculture(1, 0, true, true);
         步兵[0] = new Agriculture(1, 0, true, true);
 
-        文明 = 0;
+//        文明 = 0;
         食物 = 0;
         資源 = 0;
         科技 = 0;
         手上的牌 = new ArrayList<Card>();
 //        桌上的牌 = new ArrayList<Card>();
-        工人閒置區 = new WorkPool();
+        工人閒置區 = new YellowBank();
 //        init牌 = new Cards().copyInitCards();
 //
 //        init牌.get(0).getYellowPoints().setPoints(1);
@@ -628,21 +638,21 @@ public class Player {
 
     }
 
-    public int get文明() {
-        return 文明;
-    }
+//    public int get文明() {
+//        return 文明;
+//    }
 //實例 物件 對象
+//
+//    public void set文明(int 文明) {
+//        this.文明 = 文明;
+//    }
 
-    public void set文明(int 文明) {
-        this.文明 = 文明;
-    }
-
-    public void set文明食物資源科技(int 文明, int 食物, int 資源, int 科技) {
-        this.文明 = 文明;
-        this.食物 = 食物;
-        this.資源 = 資源;
-        this.科技 = 科技;
-    }
+//    public void set文明食物資源科技(int 文明, int 食物, int 資源, int 科技) {
+//        this.文明 = 文明;
+//        this.食物 = 食物;
+//        this.資源 = 資源;
+//        this.科技 = 科技;
+//    }
 
     public int get食物() {
         return 食物;
@@ -796,6 +806,7 @@ public class Player {
             //
 //            this.get桌上的牌().add(this.get手上的牌().get(cardNum));
             // ver 0.48
+            System.out.println("... DO AS WE CAN DO TO PUT IT TO PROPER GROUP!!!");
             table.addCardToOther(card);
 
         }
@@ -883,13 +894,11 @@ public class Player {
                 if (this.isSameAgeLeaderOnHande已拿取時代領袖(card)) {
                     this.set失敗原因(" check your on-hand");
                     return false;
-                } else if (this.isSameAgeLeaderOnTable(card)){
+                } else if (this.isSameAgeLeaderOnTable(card)) {
                     this.set失敗原因(" check your table");
                     return false;
-                    
-                    
-                        }
-                    else {
+
+                } else {
                     手上的牌.add(card);
                 }
 
@@ -951,13 +960,20 @@ public class Player {
 //
 //    }
 
-    public void showStatus() {
+    public void showPoints() {
+//        System.out.println("\n   " + get點數());
         System.out.println("   內政點數=" + getCivilCounter().getPoint());
         System.out.println("   軍事點數=" + getMilitaryCounter().getPoint());
-        showCards();
-//        System.out.println("    工人閒置區:"+  工人閒置區.toString());
-        System.out.println("\n   " + get點數());
+        System.out.println("   ScoreBoard=>" + scoreBoard);
 
+    }
+
+    public void showStatus() {
+        showPoints();
+        showBanks();
+        showCards();
+
+//        System.out.println("    工人閒置區:"+  工人閒置區.toString());
 //        show農場礦山實驗室神廟步兵();
     }
 
@@ -999,24 +1015,22 @@ public class Player {
         System.out.println("");
     }
 
+    public void showBanks() {
+        System.out.println("--------------------------");
+        System.out.println("   BlueBank" + getBlueBank());
+        System.out.println("   YellowBank工人閒置區 " + this.get工人閒置區());
+        System.out.println("   WorkPool" + this.workPool);
+
+    }
+
     public void showCards() {
         System.out.println("--------------------------");
 //        showGovernmentCard();
 //        showInitCards();
         table.show();
-        System.out.println("--------------------------");
-        System.out.print("   工人閒置區 " + this.get工人閒置區());
 
         System.out.print("\n   手牌 ");
         showCardsOnHand();
-//        System.out.print("   工人閒置區 " + this.get工人閒置區());
-
-//        System.out.print("\n   桌牌 ");
-//        showCardsOnTable();
-//        System.out.print("   建造中的奇蹟 ");
-//        show建造中的奇蹟();
-//        System.out.print("   已完成的奇蹟 ");
-//        show已完成的奇蹟();
         System.out.println("");
     }
 
@@ -1038,7 +1052,7 @@ public class Player {
         System.out.println();
     }
 
-//    public void showCardsOnTable() {
+//    public void showCardsOnTable___OTHERS() {
 //        for (int k = 0; k < 桌上的牌.size(); k++) {
 //            System.out.print(" " + k + 桌上的牌.get(k).toString(5));
 //        }
@@ -1058,7 +1072,7 @@ public class Player {
 //    }
     @Override
     public String toString() {
-        return "現有資源{" + "\u6587\u660e=" + 文明 + ", \u98df\u7269=" + 食物 + ", \u8cc7\u6e90=" + 資源 + ", \u79d1\u6280=" + 科技 + '}';
+        return "   ....TODO ...";
     }
 
 }

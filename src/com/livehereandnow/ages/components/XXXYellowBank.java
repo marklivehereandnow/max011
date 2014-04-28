@@ -10,11 +10,15 @@ package com.livehereandnow.ages.components;
  *
  * @author mark
  */
-public class BlueBank extends Points{
+public class XXXYellowBank extends Points {
+    HappyFaces happyFaces;
 
-    @Override
-    public String toString() {
-        return "BlueBank{" + this.points+'}';
+    public HappyFaces getHappyFaces() {
+        return happyFaces;
+    }
+
+    public XXXYellowBank() {
+        happyFaces=new HappyFaces();
     }
     
     

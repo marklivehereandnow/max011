@@ -8,18 +8,21 @@ package com.livehereandnow.ages.components;
 
 /**
  *
- * @author mark
+ * @author max
  */
-public class YellowBank extends Points {
-    HappyFaces happyFaces;
-
-    public HappyFaces getHappyFaces() {
-        return happyFaces;
-    }
+public class YellowBank extends Points{
+    HappyFaces  happy;
+   
 
     public YellowBank() {
-        happyFaces=new HappyFaces();
+        happy =new HappyFaces();
     }
+
     
+   
+    @Override
+    public String toString() {
+        return "WorkPool{" + "\u9ec3\u9ede=" + this.points + '}'+happy.toString();
+    }
     
 }

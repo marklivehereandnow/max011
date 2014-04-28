@@ -5,7 +5,7 @@
  */
 package com.livehereandnow.ages.components;
 
-public class Score {
+public class XXXScore {
 
     public int get文化生產() {
         return 文化生產;

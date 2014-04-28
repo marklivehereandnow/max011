@@ -52,12 +52,16 @@ public class PlayerTable extends Object {
     private Card[][] cards;
     private List<Card> other桌上的牌;
 
-    public void showCardsOnTable() {
+    public List<Card> getOther桌上的牌() {
+        return other桌上的牌;
+    }
+
+    public void showCardsOnTable___OTHERS() {
         System.out.println("Other Cards: ");
         for (int k = 0; k < other桌上的牌.size(); k++) {
-            System.out.print(" " + k + other桌上的牌.get(k).toString(5));
+            System.out.println("     " + k + other桌上的牌.get(k).toString(5));
         }
-        //   System.out.println();
+        System.out.println();
     }
 
     public Card getCard(int type, int age) {
@@ -136,7 +140,7 @@ public class PlayerTable extends Object {
 //        for (int k = 0; k < 桌上的牌.size(); k++) {
 //            System.out.print(" " + 桌上的牌.get(k).toString(1));
         System.out.print("已完成的奇蹟 ");
-      
+
         for (int k = 0; k < get奇蹟完成區().size(); k++) {
             System.out.print(" " + get奇蹟完成區().get(k).toString(2));
 
@@ -229,7 +233,7 @@ public class PlayerTable extends Object {
         System.out.println("");
         showAgesX5();
 
-        showCardsOnTable();
+        showCardsOnTable___OTHERS();
         show建造中的奇蹟();
         show已完成的奇蹟();
     }

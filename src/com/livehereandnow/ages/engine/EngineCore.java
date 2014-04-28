@@ -223,7 +223,7 @@ public class EngineCore {
 //        return old___cardRow;
 //    }
     public boolean doSetCulture(int k) {
-        玩家[當前玩家ID - 1].get點數().set文化(k);
+//        玩家[當前玩家ID - 1].get點數().set文化(k);
         return true;
     }
 
