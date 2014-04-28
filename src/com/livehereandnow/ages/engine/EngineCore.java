@@ -132,15 +132,6 @@ public class EngineCore {
         if ((1 + 當前玩家ID) == 玩家人數) {
             當前玩家ID = 0;
             roundNum++;
-
-//            玩家[0].set內政點數(4);
-//            玩家[1].set內政點數(4);
-//            玩家[2].set內政點數(4);
-//            玩家[3].set內政點數(4);
-//            玩家[0].getCivilCounter().setPoint(4);
-//            玩家[1].getCivilCounter().setPoint(4);
-//            玩家[2].getCivilCounter().setPoint(4);
-//            玩家[3].getCivilCounter().setPoint(4);
         } else {
             當前玩家ID++;
         }
@@ -186,30 +177,9 @@ public class EngineCore {
 
         roundNum = 1;
 
-//        玩家[0].set內政點數(1);
-//        玩家[1].set內政點數(2);
-//        玩家[2].set內政點數(3);
-//        玩家[3].set內政點數(4);
         玩家[0].getMilitaryCounter().setPoint(33);//DEBUG 方便測試
-
         玩家[0].getCivilCounter().setPoint(99);//DEBUG 方便測試
-//        玩家[1].getCivilCounter().setPoint(20);//DEBUG 方便測試
-//        玩家[2].getCivilCounter().setPoint(3);
-//        玩家[3].getCivilCounter().setPoint(4);
-
-//        Cards cards = new Cards();
-//        ageA內政牌 = cards.get時代A內政牌();
-//        ageA內政牌 = cards.get某時代內政牌(1);//DEBUG 暫用時代1
-//        ageA內政牌 = cards.get測試牌(4);//DEBUG 暫用時代1
-//        old___cardRow = new ArrayList<>();
-//
-//        Collections.shuffle(ageA內政牌);
-//
-//        // only take first 13 cards and discard others
-//        for (int k = 0; k < 13; k++) {
-//            old___cardRow.add(ageA內政牌.get(k));
-////            old___cardRow.add(cards.get某時代內政牌(1));
-//        }
+        
         cardRow = new CardRow(玩家人數);
 
         System.out.println("   ========================");
@@ -219,9 +189,7 @@ public class EngineCore {
         this.doStatus();
     }
 
-//    public List<Card> getCards() {
-//        return old___cardRow;
-//    }
+    
     public boolean doSetCulture(int k) {
 //        玩家[當前玩家ID - 1].get點數().set文化(k);
         return true;
@@ -235,7 +203,10 @@ public class EngineCore {
         return true;
     }
 
-    public boolean doRevolution() throws AgesException {
+    public boolean doIncreasePopulation() throws AgesException {
+        return get當前玩家().doIncreasePolutaion();
+    }
+public boolean doRevolution() throws AgesException {
         return get當前玩家().doRevolution();
     }
 

@@ -33,6 +33,9 @@ public class Engine {
 
     public boolean doCmd(String keyword) throws IOException, AgesException {
         switch (keyword) {
+            case "increase-population"://v0.52
+            case "population"://v0.52
+                return core.doIncreasePopulation();
             case "revolution"://v0.39
                 return core.doRevolution();
             case "govt"://v0.39
@@ -103,6 +106,9 @@ public class Engine {
 
         System.out.println();
 
+        System.out.println("  === ver 0.52 ===  2014-4-28, 17:00, by Mark　");
+        System.out.println("    1. basic population/increase-poluation ");
+        System.out.println();
         System.out.println("  === ver 0.51 ===  2014-4-28, 16:30, by Mark　");
         System.out.println("    1. to show all components on player's side");
         System.out.println();

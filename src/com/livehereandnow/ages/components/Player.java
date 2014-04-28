@@ -125,6 +125,13 @@ public class Player {
         }
     }
 
+    public boolean doIncreasePolutaion() throws AgesException {
+        System.out.println(" ... only to perform: transfer yellow token from YellowBank to WorkPool");
+        this.工人閒置區.addPoints(-1);
+        this.workPool.addPoints(+1);
+        return true;
+    }
+
     public boolean doRevolution() throws AgesException {
         System.out.println("99996647221245()");
         System.out.println("DOING... Player.doRevolution()");
@@ -224,7 +231,6 @@ public class Player {
 //    public XXXScore get點數() {
 //        return 點數;
 //    }
-
     private int 食物;//請列出食物點數的計算方式
     //當我們要計算花費食物的時候要呼叫食物的副程式
     //
@@ -581,61 +587,49 @@ public class Player {
         table.add黃點(3, 0, 2);
         table.add黃點(4, 0, 2);
         table.add黃點(5, 0, 1);
-
-//        ages實驗室 = new Card[4];
-//        ages神廟 = new Card[4];
-//        ages農場 = new Card[4];
-//        ages礦山 = new Card[4];
-//        ages步兵 = new Card[4];
-//        ages實驗室[0] = new Card(13, "哲學", 0, 內政, 科技, 灰色, "實驗室", "科技生產+1", "3");
-//        ages神廟[0] = new Card(11, "宗教", 0, 內政, 科技, 灰色, "神廟", "笑臉+1，文化生產+1", "3");
-//        ages農場[0] = new Card(12, "農業", 0, 內政, 科技, 棕色, "農場", "食物生產+1", "2");
-//        ages礦山[0] = new Card(15, "青銅", 0, 內政, 科技, 棕色, "礦山", "資源生產+1", "2");
-//        ages步兵[0] = new Card(14, "戰士", 0, 內政, 科技, 紅色, "步兵", "軍力+1", "2");
         civilCounter = new Counter();
         militaryCounter = new Counter();
-        失敗原因 = "";
-//        點數 = new XXXScore();
-        for (int k = 0; k < 4; k++) {
-            已拿取時代領袖[k] = false;
-            農場[k] = new Agriculture(0, 0, false, false);
-            礦山[k] = new Agriculture(0, 0, false, false);
-            神廟[k] = new Agriculture(0, 0, false, false);
-            實驗室[k] = new Agriculture(0, 0, false, false);
-
-            競技場[k] = new Agriculture(0, 0, false, false);
-            劇院[k] = new Agriculture(0, 0, false, false);
-            圖書館[k] = new Agriculture(0, 0, false, false);
-
-            步兵[k] = new Agriculture(0, 0, false, false);
-            騎兵[k] = new Agriculture(0, 0, false, false);
-            砲兵[k] = new Agriculture(0, 0, false, false);
-            飛機[k] = new Agriculture(0, 0, false, false);
-
-        }
-        農場[0] = new Agriculture(2, 0, true, true);
-        礦山[0] = new Agriculture(2, 0, true, true);
-        神廟[0] = new Agriculture(0, 0, true, true);
-        實驗室[0] = new Agriculture(1, 0, true, true);
-        步兵[0] = new Agriculture(1, 0, true, true);
+//        失敗原因 = "";
+////        點數 = new XXXScore();
+//        for (int k = 0; k < 4; k++) {
+//            已拿取時代領袖[k] = false;
+//            農場[k] = new Agriculture(0, 0, false, false);
+//            礦山[k] = new Agriculture(0, 0, false, false);
+//            神廟[k] = new Agriculture(0, 0, false, false);
+//            實驗室[k] = new Agriculture(0, 0, false, false);
+//
+//            競技場[k] = new Agriculture(0, 0, false, false);
+//            劇院[k] = new Agriculture(0, 0, false, false);
+//            圖書館[k] = new Agriculture(0, 0, false, false);
+//
+//            步兵[k] = new Agriculture(0, 0, false, false);
+//            騎兵[k] = new Agriculture(0, 0, false, false);
+//            砲兵[k] = new Agriculture(0, 0, false, false);
+//            飛機[k] = new Agriculture(0, 0, false, false);
+//
+//        }
+//        農場[0] = new Agriculture(2, 0, true, true);
+//        礦山[0] = new Agriculture(2, 0, true, true);
+//        神廟[0] = new Agriculture(0, 0, true, true);
+//        實驗室[0] = new Agriculture(1, 0, true, true);
+//        步兵[0] = new Agriculture(1, 0, true, true);
 
 //        文明 = 0;
-        食物 = 0;
-        資源 = 0;
-        科技 = 0;
+//        食物 = 0;
+//        資源 = 0;
+//        科技 = 0;
         手上的牌 = new ArrayList<Card>();
 //        桌上的牌 = new ArrayList<Card>();
         工人閒置區 = new YellowBank();
-//        init牌 = new Cards().copyInitCards();
-//
-//        init牌.get(0).getYellowPoints().setPoints(1);
-//        init牌.get(1).getYellowPoints().setPoints(0);
-//        init牌.get(2).getYellowPoints().setPoints(2);
-//        init牌.get(3).getYellowPoints().setPoints(2);
-//        init牌.get(4).getYellowPoints().setPoints(1);
-
         government = new Cards().getInitGovernment();
 
+        
+        //
+        //
+        //
+        blueBank.setPoints(66);
+        工人閒置區.setPoints(77);
+        
     }
 
 //    public int get文明() {
@@ -646,14 +640,12 @@ public class Player {
 //    public void set文明(int 文明) {
 //        this.文明 = 文明;
 //    }
-
 //    public void set文明食物資源科技(int 文明, int 食物, int 資源, int 科技) {
 //        this.文明 = 文明;
 //        this.食物 = 食物;
 //        this.資源 = 資源;
 //        this.科技 = 科技;
 //    }
-
     public int get食物() {
         return 食物;
     }
@@ -970,7 +962,7 @@ public class Player {
 
     public void showStatus() {
         showPoints();
-        showBanks();
+        showBanksAndPool();
         showCards();
 
 //        System.out.println("    工人閒置區:"+  工人閒置區.toString());
@@ -1015,11 +1007,11 @@ public class Player {
         System.out.println("");
     }
 
-    public void showBanks() {
+    public void showBanksAndPool() {
         System.out.println("--------------------------");
         System.out.println("   BlueBank" + getBlueBank());
         System.out.println("   YellowBank工人閒置區 " + this.get工人閒置區());
-        System.out.println("   WorkPool" + this.workPool);
+        System.out.println("   WorkPool=" + this.workPool);
 
     }
 
