@@ -67,20 +67,19 @@ public class Card implements CardType {
                     String[] strTokens2 = item.split("[+]");
 //                    String[] strTokens2 = item.split("=");// **it's in English, 1 byte***
 //      
-                    
+
                     if (strTokens2[0].equals("內政點數")) {
                         System.out.println("     =>=>" + strTokens2[1] + " for 內政點數, whitePoints");
-                        
+
                         this.whitePoints.setPoints(Integer.parseInt(strTokens2[1]));
                     }
                     if (strTokens2[0].equals("軍事點數")) {
                         System.out.println("     =>=>" + strTokens2[1] + " for 軍事點數, redPoints");
                         this.redPoints.setPoints(Integer.parseInt(strTokens2[1]));
-                   
-                    }
-                    
-                    //   System.out.println("     =>=>"+strTokens2[1]);
 
+                    }
+
+                    //   System.out.println("     =>=>"+strTokens2[1]);
                 }
             }
             //System.out.println(" ... constructor of Card, for 政府 card, to parse 內政點數+4，軍事點數+2 ");
@@ -280,10 +279,12 @@ public class Card implements CardType {
 
     /**
      * FOR-MAX
+     *
      * @param k <br>
      * 5=>[I-灌溉-科技-農場-建造成本:3/3] <br>
-     * 6=>[A-Philosophy--實驗室  黃點:0 藍點:0]
-     * @return 
+     * 6=>[A-Philosophy--實驗室 黃點:0 藍點:0]
+     * 9 for Leader card, 
+     * @return
      */
     public String toString(int k) {
         switch (k) {
@@ -332,6 +333,12 @@ public class Card implements CardType {
                     return "[] ";
                 }
                 return "[" + get只有時代的時代名() + get牌背名() + "-" + get卡名() + " " + get內容() + " 建造成本:" + wonderStage + "] ";
+
+            case 9://for leader
+                if (卡名.equalsIgnoreCase("")) {
+                    return "[] ";
+                }
+                return "[" + get只有時代的時代名() + get牌背名() + "-" + get卡名() + " " + get內容() + "] ";
 
             default:
                 return toString();

@@ -766,7 +766,11 @@ public class Player {
 //        灌溉為例
         System.out.println("右上=" + this.get手上的牌().get(cardNum).get右上());
 
-        if (this.get手上的牌().get(cardNum).get類型() == CardType.科技) {
+//        if (this.get手上的牌().get(cardNum).get類型() == CardType.科技) {
+        if (card.get類型() == CardType.領袖) {
+//      
+            table.setLeader(card);
+        } else if (card.get類型() == CardType.科技) {
 //            System.out.println("123");
             switch (this.get手上的牌().get(cardNum).get右上()) {
 //                case "農場": {
@@ -784,19 +788,19 @@ public class Player {
                 case "神廟":
 //                    ages神廟[card.get時代()] = card;
                     table.setCard(card, 2, card.get時代());
-       break;
+                    break;
                 case "農場":
-                           table.setCard(card, 3, card.get時代());
+                    table.setCard(card, 3, card.get時代());
 
 //                    ages農場[card.get時代()] = card;
                     break;
                 case "礦山":
-                           table.setCard(card, 4, card.get時代());
+                    table.setCard(card, 4, card.get時代());
 
 //                    ages農場[card.get時代()] = card;
                     break;
                 case "步兵":
-                           table.setCard(card, 5, card.get時代());
+                    table.setCard(card, 5, card.get時代());
 
 //                    ages農場[card.get時代()] = card;
                     break;
@@ -809,7 +813,9 @@ public class Player {
             //
             // eventually we will find proper location for different types of cards
             //
-            this.get桌上的牌().add(this.get手上的牌().get(cardNum));
+//            this.get桌上的牌().add(this.get手上的牌().get(cardNum));
+            // ver 0.48
+            table.addCardToOther(card);
 
         }
         this.get手上的牌().remove(cardNum);
@@ -1016,7 +1022,7 @@ public class Player {
         System.out.print("   工人閒置區 " + this.get工人閒置區());
 
         System.out.print("\n   桌牌 ");
-        showCardsOnTable();
+//        showCardsOnTable();
         System.out.print("   建造中的奇蹟 ");
         show建造中的奇蹟();
         System.out.print("   已完成的奇蹟 ");
@@ -1044,13 +1050,12 @@ public class Player {
         System.out.println();
     }
 
-    public void showCardsOnTable() {
-        for (int k = 0; k < 桌上的牌.size(); k++) {
-            System.out.print(" " + k + 桌上的牌.get(k).toString(5));
-        }
-        //   System.out.println();
-    }
-
+//    public void showCardsOnTable() {
+//        for (int k = 0; k < 桌上的牌.size(); k++) {
+//            System.out.print(" " + k + 桌上的牌.get(k).toString(5));
+//        }
+//        //   System.out.println();
+//    }
     public void show建造中的奇蹟() {
 //        for (int k = 0; k < 桌上的牌.size(); k++) {
 //            System.out.print(" " + 桌上的牌.get(k).toString(1));

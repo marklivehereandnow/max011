@@ -11,6 +11,8 @@ import static com.livehereandnow.ages.components.CardType.橙色;
 import static com.livehereandnow.ages.components.CardType.灰色;
 import static com.livehereandnow.ages.components.CardType.科技;
 import static com.livehereandnow.ages.components.CardType.紅色;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,6 +20,11 @@ import static com.livehereandnow.ages.components.CardType.紅色;
  */
 public class PlayerTable extends Object {
 
+    private Card leader;
+
+    public Card getLeader() {
+        return leader;
+    }
     private Card[] cards政府;
     private Card[] cards實驗室;
     private Card[] cards神廟;
@@ -25,6 +32,15 @@ public class PlayerTable extends Object {
     private Card[] cards礦山;
     private Card[] cards步兵;
     private Card[][] cards;
+    private List<Card> other桌上的牌;
+
+    public void showCardsOnTable() {
+        System.out.println("Other Cards: ");
+        for (int k = 0; k < other桌上的牌.size(); k++) {
+            System.out.print(" " + k + other桌上的牌.get(k).toString(5));
+        }
+        //   System.out.println();
+    }
 
     public Card getCard(int type, int age) {
         return cards[type][age];
@@ -48,6 +64,14 @@ public class PlayerTable extends Object {
      */
     public void setCard(Card card, int type, int age) {
         this.cards[type][age] = card;
+    }
+
+    public void addCardToOther(Card card) {
+        other桌上的牌.add(card);
+    }
+
+    public void setLeader(Card card) {
+        leader = card;
     }
 
     /**
@@ -74,13 +98,17 @@ public class PlayerTable extends Object {
 //      public void upgrade黃點(int type, int ageFrom, int ageTo){筆記
 
     public void upgrade黃點(int type, int ageFrom, int ageTo) {
-        add黃點(type, ageFrom,-1);
-        add黃點(type, ageTo,1);
+        add黃點(type, ageFrom, -1);
+        add黃點(type, ageTo, 1);
     }
 
     public PlayerTable() {
+         Card NOCARD = new Card(999, "", 0, CardType.EMPTY);
+        leader=NOCARD;
+         
         cards = new Card[6][];
-
+        other桌上的牌 = new ArrayList<>();
+        //---------------------
         cards政府 = new Card[4];
         cards實驗室 = new Card[4];
         cards神廟 = new Card[4];
@@ -94,22 +122,18 @@ public class PlayerTable extends Object {
         cards[4] = cards礦山;
         cards[5] = cards步兵;
 
-        cards政府[0] =  new Card(10, "專制", 0, 內政, 科技, 橙色, "政府", "內政點數+4，軍事點數+2", "0");
+        cards政府[0] = new Card(10, "專制", 0, 內政, 科技, 橙色, "政府", "內政點數+4，軍事點數+2", "0");
 
-      
         cards實驗室[0] = new Card(13, "哲學", 0, 內政, 科技, 灰色, "實驗室", "科技生產+1", "3");
         cards神廟[0] = new Card(11, "宗教", 0, 內政, 科技, 灰色, "神廟", "笑臉+1，文化生產+1", "3");
         cards農場[0] = new Card(12, "農業", 0, 內政, 科技, 棕色, "農場", "食物生產+1", "2");
         cards礦山[0] = new Card(15, "青銅", 0, 內政, 科技, 棕色, "礦山", "資源生產+1", "2");
         cards步兵[0] = new Card(14, "戰士", 0, 內政, 科技, 紅色, "步兵", "軍力+1", "2");
 
-        
-        
     }
 
-     private void showAgesX5() {
-        showAges政府("  政府", cards政府);
-         System.out.println("");
+    private void showAgesX5() {
+
         showAgesX5("  實驗室", cards實驗室);
         showAgesX5("  神廟", cards神廟);
         showAgesX5("  農場", cards農場);
@@ -118,7 +142,12 @@ public class PlayerTable extends Object {
 
     }
 
-     private void showAges政府(String title, Card[] ages) {
+    private void show領袖() {
+        System.out.println("    領袖 " + leader.toString(9));
+
+    }
+
+    private void showAges政府(String title, Card[] ages) {
         System.out.print("  " + title);
         for (int k = 0; k < 4; k++) {
             try {
@@ -126,7 +155,7 @@ public class PlayerTable extends Object {
             } catch (Exception e) {
             }
         }
-         System.out.print(" ONLY TO SEE LATEST ONE!!!");
+        System.out.print(" ONLY TO SEE LATEST ONE!!!");
         System.out.println("  ");
 
     }
@@ -145,10 +174,15 @@ public class PlayerTable extends Object {
 
     public void show(String title) {
         System.out.println(title);
-        showAgesX5();
+        show();
     }
 
     public void show() {
+        show領袖();
+        showAges政府("  政府", cards政府);
+        System.out.println("");
         showAgesX5();
+
+        showCardsOnTable();
     }
 }
