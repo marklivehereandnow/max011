@@ -73,7 +73,7 @@ public class Engine {
             case "play":
             case "play-card":
             case "out-card":
-                return core.doPlayCard(parameter);
+                return core.doPlayCardWithRoundNumber(parameter);
 
             case "拿"://在我的環境NetBeans無法執行，但是在DOS可以
             case "拿牌":
@@ -106,6 +106,10 @@ public class Engine {
 
         System.out.println();
 
+        System.out.println("  === ver 0.55 ===  2014-4-28, 22:10, by Mark　");
+        System.out.println("    1. ****secured cards be held for one round using RoundNumber on Card**** ");
+        System.out.println();
+
         System.out.println("  === ver 0.54 ===  2014-4-28, 21:20, by Mark　");
         System.out.println("    1. change Government holder to be Card ");
         System.out.println("    2. also fix 農場 and 礦山 doProduction");
@@ -116,7 +120,8 @@ public class Engine {
         System.out.println();
         System.out.println("  === ver 0.52 ===  2014-4-28, 17:00, by Mark　");
         System.out.println("    1. basic population/increase-poluation ");
-        System.out.println();   System.out.println("  === ver 0.51 ===  2014-4-28, 16:30, by Mark　");
+        System.out.println();
+        System.out.println("  === ver 0.51 ===  2014-4-28, 16:30, by Mark　");
         System.out.println("    1. to show all components on player's side");
         System.out.println();
         System.out.println("  === ver 0.50 ===  2014-4-28, 15:50, by Mark　");

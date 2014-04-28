@@ -735,7 +735,7 @@ public class Player {
 //    public void set桌上的牌(List<Card> 桌上的牌) {
 //        this.桌上的牌 = 桌上的牌;
 //    }
-    public boolean doPlayCard(int cardNum) throws AgesException {
+    public boolean doPlayCardWithRoundNumber(int cardNum, int roundNum) throws AgesException {
         //
         // 
         //
@@ -749,7 +749,18 @@ public class Player {
         //
         //
         Card card = this.get手上的牌().get(cardNum);
+        //
+        // card must stay on hand for at least one round
+        //
+        if (card.getRound()==roundNum){
+            System.out.println("... you cannot play this card this round ");
 
+            return false;
+        }
+        
+        
+        
+        
         //this.get桌上的牌().add(this.get手上的牌().get(cardNum));
         System.out.println("這張牌的類型是" + this.get手上的牌().get(cardNum).get類型());
         //        當打出科技牌的時候
@@ -917,9 +928,9 @@ public class Player {
                 break;
             }
             case CardType.行動: {
-                System.out.println("   ... NEED TO PERFORM 行動 ...");
+//                System.out.println("   ... NEED TO PERFORM 行動 ...");
 
-                //手上的牌.add(card);
+                手上的牌.add(card);
                 break;
             }
             default:
@@ -1048,7 +1059,7 @@ public class Player {
 //    }
     public void showCardsOnHand() {
         for (int k = 0; k < 手上的牌.size(); k++) {
-            System.out.print(" " + k + 手上的牌.get(k).toString(5));
+            System.out.print(" " + k + 手上的牌.get(k).toString(15));
         }
         System.out.println();
     }

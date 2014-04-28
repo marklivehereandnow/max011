@@ -223,10 +223,10 @@ public boolean doRevolution() throws AgesException {
         return true;
     }
 
-    public boolean doPlayCard(int k) throws AgesException {
+    public boolean doPlayCardWithRoundNumber(int k) throws AgesException {
 //            Card card = ;
 //        int cardPoint = 1;//DEBUG，假設需要一個內政點數來打牌
-        get當前玩家().doPlayCard(k);
+        get當前玩家().doPlayCardWithRoundNumber(k, this.roundNum);
 
         return true;
     }
@@ -267,6 +267,11 @@ public boolean doRevolution() throws AgesException {
 //        Card card = old___cardRow.get(k);
         int cardPoint = CARD_POINT[k];
         Card card = cardRow.getCards().get(k);
+        
+        //ver 0.55
+        card.setRound(this.roundNum);
+        
+        
 //        if (card.get卡名().length() == 0) {
 //            System.out.println("This card has been taken! ***Nothing happened***");
 //            return true;

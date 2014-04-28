@@ -20,6 +20,22 @@ public class Card implements CardType {
     //for Government Cards
     private Points whitePoints;
     private Points redPoints;
+    private int round; 
+
+    
+    public int getRound() {
+        return round;
+    }
+
+    /**
+     * Which round player take this card?
+     * Except for Wonder card, all cards must be held on hand for at least one round
+     * @param round 
+     */
+    public void setRound(int round) {
+        this.round = round;
+    }
+    
 
       public void doProduction() {
       //  藍點 = 藍點 + 黃點;
@@ -320,6 +336,11 @@ public class Card implements CardType {
                     return "[] ";
                 }
                 return "[" + get只有時代的時代名() + "-" + get卡名() + "-" + get類型Name() + "-" + get右上() + "-建造成本:" + wonderStage + "] ";
+  case 15:// including Round# [I-灌溉-科技-農場-建造成本:3/3]，因為要確認右上的字
+                if (卡名.equalsIgnoreCase("")) {
+                    return "[] ";
+                }
+                return "[round#" +getRound()+"-"+ get只有時代的時代名() + "-" + get卡名() + "-" + get類型Name() + "-" + get右上() + "-建造成本:" + wonderStage + "] ";
 
             case 6://  0[A-Philosophy--實驗室  黃點:0 藍點:0]
                 if (卡名.equalsIgnoreCase("")) {
