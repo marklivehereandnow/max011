@@ -134,8 +134,11 @@ public class Player {
             System.out.println("The index is " + cardIndex);
             Card newGovt = 手上的牌.get(cardIndex);
             System.out.println("3. Now, to replace the Govt with " + newGovt);
-            this.government = newGovt;
-            System.out.println("*** NOT TO ALLOW MORE THAN ONE GOVT CARD ON HAND ??? *** ");
+             //ver 0.49
+            //this.government = newGovt;           
+            table.setCard(newGovt, 0, newGovt.get時代());
+           
+//            System.out.println("*** NOT TO ALLOW MORE THAN ONE GOVT CARD ON HAND ??? *** ");
 
             return true;
         } else {
@@ -165,8 +168,12 @@ public class Player {
             System.out.println("The index is " + cardIndex);
             Card newGovt = 手上的牌.get(cardIndex);
             System.out.println("3. Now, to replace the Govt with " + newGovt);
-            this.government = newGovt;
-            System.out.println("*** NOT TO ALLOW MORE THAN ONE GOVT CARD ON HAND ??? *** ");
+            
+            //ver 0.49
+            //this.government = newGovt;           
+            table.setCard(newGovt, 0, newGovt.get時代());
+            
+            //System.out.println("*** NOT TO ALLOW MORE THAN ONE GOVT CARD ON HAND ??? *** ");
 
             return true;
         } else {

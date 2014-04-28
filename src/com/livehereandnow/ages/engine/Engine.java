@@ -103,11 +103,18 @@ public class Engine {
 
         System.out.println();
 
+        System.out.println("  === ver 0.49 ===  2014-4-28, 15:00, by Mark　");
+        System.out.println("    1. doRevolution and doGovernment using PlayerTable");
+        System.out.println("    2.  //this.government = newGovt;           \n" +
+"            table.setCard(newGovt, 0, newGovt.get時代()); ");
+        System.out.println();
+
         System.out.println("  === ver 0.48 ===  2014-4-28, 14:30, by Mark　");
         System.out.println("    1. transfer leader to PlayerTable");
         System.out.println("    2. show leader as 領袖 [A內政-漢摩拉比 內政點數+1，軍事點數-1] ");
         System.out.println();
 
+        
         System.out.println("  === ver 0.47 ===  2014-4-28, 13:45, by Mark　");
         System.out.println("    1. put PlayerTable to Player");
         System.out.println("    2. follow 實驗室 [A-哲學--實驗室  黃點:1 藍點:0] style to have 政府 [A-專制--政府  White點:4 Red點:2]  ONLY TO SEE LATEST ONE!!! ");
